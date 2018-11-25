@@ -1,7 +1,0 @@
-2015-08-03
-出机场总点数：2860
-入机场总点数：2312
-读取数据耗时：50.657392
-
-当前时间：00:00:00--00:15:00
-此时段的出机场订单：[<someclass.Demand instance at 0x7f93afe01878>, <someclass.Demand instance at 0x7f93af58c440>, <someclass.Demand instance at 0x7f93af58c758>, <someclass.Demand instance at 0x7f93afb55518>, <someclass.Demand instance at 0x7f93aed17290>, <someclass.Demand instance at 0x7f93aed17fc8>, <someclass.Demand instance at 0x7f93af359710>, <someclass.Demand instance at 0x7f93aef576c8>, <someclass.Demand instance at 0x7f93ab8943f8>, <someclass.Demand instance at 0x7f93a7102488>, <someclass.Demand instance at 0x7f93aa2d0c68>, <someclass.Demand instance at 0x7f939f5b9680>, <someclass.Demand instance at 0x7f939ea117e8>, <someclass.Demand instance at 0x7f939cf3bb00>, <someclass.Demand instance at 0x7f939cf3bf80>, <someclass.Demand instance at 0x7f938a9aff80>, <someclass.Demand instance at 0x7f939baf56c8>, <someclass.Demand instance at 0x7f939a5fb050>, <someclass.Demand instance at 0x7f939a5fb320>, <someclass.Demand instance at 0x7f939a5fbc20>, <someclass.Demand instance at 0x7f93991d2560>]

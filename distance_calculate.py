@@ -25,6 +25,15 @@ def manhattan_calculate( position_1, position_2 ):
     return duration
 
 
+def euclidean_calculate(position_1, position_2):
+    R_earth = 6371000
+    velocity = 8.33
+    c = math.acos(math.cos(90-position_2[1])*math.cos(90-position_1[1])+math.sin(90-position_2[1])*math.sin(90-position_1[1])*math.cos(position_2[0]-position_1[0]))
+    distance = c*math.pi*R_earth/180
+    duration = distance/velocity
+    return duration
+
+
 def api_calculate( position_1, position_2 ):
     # 调用api时，经纬度的最多取6位
     urlRequest = 'http://restapi.amap.com/v3/direction/driving?key=a37de205f70806a79db53f2d0f847d80&origin=' + str(

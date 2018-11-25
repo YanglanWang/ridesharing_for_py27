@@ -2,10 +2,11 @@
 import numpy as np
 import time
 import someclass
+# import VNS_both_final_dynamic_api_v6
 
-def read_file(filename, file_type):
-    #service_type is boolean, true means outbound, false means inbound
 
+def read_file(filename, file_type, distance_dictionary):
+    # service_type is boolean, true means outbound, false means inbound
     customer=[]
 
     # customer_ID_out = []
@@ -44,11 +45,13 @@ def read_file(filename, file_type):
                 timestamp = time.mktime( timeArray )
                 r=someclass.Demand(id,position,file_type,timestamp)
                 if len(customer)!=0:
-                    r.update_distance_dictionary(customer)
+                    distance_dictionary = r.update_distance_dictionary(customer, distance_dictionary)
 
                 # 时间字符串-->时间戳数据
 
                 customer.append(r)
-    return customer
+                if len(customer)==2860:
+                    pass
+    return customer, distance_dictionary
 
 
