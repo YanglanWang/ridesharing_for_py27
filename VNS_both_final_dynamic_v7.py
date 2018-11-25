@@ -746,9 +746,6 @@ def plot_a_simple_map(current_route, total_off, filename):
     
     
 if __name__=="__main__":
-
-    distance_dictionary = dict()
-
     
     """
     ========================== 读取所有出机场数据 ======================================
@@ -763,47 +760,45 @@ if __name__=="__main__":
     
     filename = '20150803_gaode_offboard.txt' # 出机场的数据
     
-    # customer_ID_out=[]
-    # on_GPS_out=[]
-    # off_longitude=[]
-    # off_latitude=[]
-    #
-    # with open(filename, 'r') as file_to_read:
-    #
-    #     j = 1 #用于添加用户ID
-    #     while True:
-    #         lines = file_to_read.readline() # 整行读取数据
-    #         if not lines:
-    #             break
-    #             pass
-    #
-    #         # 将整行数据分割处理，如果分割符是空格，括号里就不用传入参数，如果是逗号， 则传入‘，'字符。
-    #         carNO_tmp, on_time_tmp, on_GPS_tmp, on_difference_tmp, on_longitude_tmp, on_latitude_tmp, off_time_tmp, off_GPS_tmp, off_difference_tmp, off_longitude_tmp, off_latitude_tmp, distance_tmp = [i for i in lines.split(',')]
-    #
-    #         # 时间字符串-->时间戳数据
-    #         timeArray = time.strptime(on_GPS_tmp[0:19], "%Y-%m-%dT%H:%M:%S")
-    #         timestamp = time.mktime(timeArray)
-    #
-    #         off_lo = float(off_longitude_tmp)
-    #         off_la = float(off_latitude_tmp)
-    #
-    #         if (110.0 < off_lo < 120.0) and (20 < off_la < 25):
-    #
-    #             customer_ID_out.append('O_'+ on_GPS_tmp[11:13]+on_GPS_tmp[14:16]+on_GPS_tmp[17:19]) #用户ID
-    #             j = j+1
-    #             # on_GPS_out.append(timestamp - 1438500000.0)  #数小一点便于计算？
-    #             on_GPS_out.append(timestamp)
-    #             off_longitude.append(off_lo)
-    #             off_latitude.append(off_la)
-    #
-    # f.write( "出机场总点数：" + str(len(customer_ID_out)) + '\n')
-    #
-    # off_longitude = np.array(off_longitude)
-    # off_latitude = np.array(off_latitude)
-    #
-    # total_off= np.vstack([off_longitude, off_latitude])
-    # total_off= np.transpose(total_off)
-    #
+    customer_ID_out=[]
+    on_GPS_out=[]
+    off_longitude=[]
+    off_latitude=[]
+    
+    with open(filename, 'r') as file_to_read:
+        
+        j = 1 #用于添加用户ID
+        while True:
+            lines = file_to_read.readline() # 整行读取数据
+            if not lines:
+                break
+                pass
+            
+            # 将整行数据分割处理，如果分割符是空格，括号里就不用传入参数，如果是逗号， 则传入‘，'字符。
+            carNO_tmp, on_time_tmp, on_GPS_tmp, on_difference_tmp, on_longitude_tmp, on_latitude_tmp, off_time_tmp, off_GPS_tmp, off_difference_tmp, off_longitude_tmp, off_latitude_tmp, distance_tmp = [i for i in lines.split(',')]
+            
+            # 时间字符串-->时间戳数据
+            timeArray = time.strptime(on_GPS_tmp[0:19], "%Y-%m-%dT%H:%M:%S")
+            timestamp = time.mktime(timeArray)
+            
+            off_lo = float(off_longitude_tmp)
+            off_la = float(off_latitude_tmp)
+            
+            if (110.0 < off_lo < 120.0) and (20 < off_la < 25):
+               
+                customer_ID_out.append('O_'+ on_GPS_tmp[11:13]+on_GPS_tmp[14:16]+on_GPS_tmp[17:19]) #用户ID
+                j = j+1
+                on_GPS_out.append(timestamp - 1438500000.0)  #数小一点便于计算？
+                off_longitude.append(off_lo)
+                off_latitude.append(off_la)
+    
+    f.write( "出机场总点数：" + str(len(customer_ID_out)) + '\n')
+     
+    off_longitude = np.array(off_longitude)
+    off_latitude = np.array(off_latitude)
+    
+    total_off= np.vstack([off_longitude, off_latitude])
+    total_off= np.transpose(total_off)
 
     """
     ========================== 读取所有入机场数据 ======================================
@@ -838,8 +833,7 @@ if __name__=="__main__":
                
                 customer_ID_in.append('I_' + on_GPS_tmp[11:13]+on_GPS_tmp[14:16]+on_GPS_tmp[17:19]) #用户ID
                 j = j+1
-                # on_GPS_in.append(timestamp - 1438500000.0)  #数小一点便于计算？
-                on_GPS_in.append(timestamp)
+                on_GPS_in.append(timestamp - 1438500000.0)  #数小一点便于计算？
                 on_longitude.append(on_lo)
                 on_latitude.append(on_la)
     

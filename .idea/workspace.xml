@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bd5b045-7e28-42f7-a2a9-3e5bcf10451d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/check2distance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vrp_airport_v1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/VNS_both_final_dynamic_v7.py" beforeDir="false" afterPath="$PROJECT_DIR$/VNS_both_final_dynamic_v7.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/both mode_try0602(3)maxiteration_4_0.7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/both mode_try0602(3)maxiteration_4_0.7.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/both mode_try0602_brief(3)maxiteration_4_0.7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/both mode_try0602_brief(3)maxiteration_4_0.7.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +35,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/read_file.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-174">
+            <state relative-caret-position="255">
               <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
               <folding>
                 <element signature="e#23#41#0" expanded="true" />
@@ -46,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/someclass.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="263">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -59,9 +57,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_v7.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3088">
+              <caret line="1044" column="38" lean-forward="true" selection-start-line="1044" selection-start-column="38" selection-end-line="1044" selection-end-column="38" />
+              <folding>
+                <element signature="e#373#384#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/distance_calculate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="330">
               <caret line="24" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="e#23#34#0" expanded="true" />
@@ -70,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vrp_airport_v1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="221" lean-forward="true" selection-start-line="221" selection-end-line="221" />
+            <state relative-caret-position="120">
+              <caret line="226" column="46" lean-forward="true" selection-start-line="226" selection-start-column="46" selection-end-line="226" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -139,7 +149,7 @@
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
+    <navigator proportions="" version="1">
       <showMembers Scope="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
@@ -224,9 +234,6 @@
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -286,11 +293,12 @@
       <updated>1542897814213</updated>
       <workItem from="1543043778173" duration="18836000" />
       <workItem from="1543077513446" duration="2094000" />
+      <workItem from="1543110773116" duration="1640000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20930000" />
+    <option name="totallyTimeSpent" value="22570000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -304,7 +312,7 @@
   <component name="ToolWindowManager">
     <frame x="58" y="-11" width="1309" height="780" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2807296" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2854877" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -319,7 +327,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.2139535" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.3534884" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.35193798" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -362,22 +370,22 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_v7.py</url>
-          <line>755</line>
+          <line>752</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_v7.py</url>
-          <line>770</line>
+          <line>799</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_v7.py</url>
-          <line>803</line>
+          <line>801</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_v7.py</url>
-          <line>810</line>
+          <line>805</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -466,19 +474,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_v7.py">
+    <entry file="file://$PROJECT_DIR$/read_file.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="944" selection-start-line="944" selection-end-line="945" selection-end-column="88" />
+        <state relative-caret-position="255">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
           <folding>
-            <element signature="e#373#384#0" expanded="true" />
+            <element signature="e#23#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/distance_calculate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="330">
           <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="e#23#34#0" expanded="true" />
@@ -488,27 +496,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vrp_airport_v1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="221" lean-forward="true" selection-start-line="221" selection-end-line="221" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/read_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-174">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
-          <folding>
-            <element signature="e#23#41#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="226" column="46" lean-forward="true" selection-start-line="226" selection-start-column="46" selection-end-line="226" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/someclass.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_v7.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3088">
+          <caret line="1044" column="38" lean-forward="true" selection-start-line="1044" selection-start-column="38" selection-end-line="1044" selection-end-column="38" />
+          <folding>
+            <element signature="e#373#384#0" expanded="true" />
           </folding>
         </state>
       </provider>
