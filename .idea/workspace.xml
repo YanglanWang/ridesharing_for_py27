@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0bd5b045-7e28-42f7-a2a9-3e5bcf10451d" name="Default Changelist" comment="" />
+    <list default="true" id="0bd5b045-7e28-42f7-a2a9-3e5bcf10451d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/20150803_gaode_offboard.txt" beforeDir="false" afterPath="$PROJECT_DIR$/20150803_gaode_offboard.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/20150803_gaode_onboard.txt" beforeDir="false" afterPath="$PROJECT_DIR$/20150803_gaode_onboard.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/both mode_try0602(3)maxiteration_4_0.7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/both mode_try0602(3)maxiteration_4_0.7.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python2.7/orig-prefix.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python2.7/orig-prefix.txt" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,8 +85,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="962" column="33" selection-start-line="962" selection-start-column="33" selection-end-line="962" selection-end-column="33" />
+            <state relative-caret-position="22">
+              <caret line="960" column="33" selection-start-line="960" selection-start-column="33" selection-end-line="960" selection-end-column="33" />
               <folding>
                 <element signature="e#378#389#0" expanded="true" />
               </folding>
@@ -396,11 +402,12 @@
       <workItem from="1543369208894" duration="7928000" />
       <workItem from="1543388497115" duration="14383000" />
       <workItem from="1543454734567" duration="1805000" />
+      <workItem from="1543456609329" duration="851000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139740000" />
+    <option name="totallyTimeSpent" value="140591000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -414,7 +421,7 @@
   <component name="ToolWindowManager">
     <frame x="58" y="-11" width="1309" height="780" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499187" visible="true" weight="0.24900873" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499187" visible="true" weight="0.25297382" />
       <window_info id="Structure" order="1" sideWeight="0.50162864" side_tool="true" weight="0.24504362" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -428,14 +435,14 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3379845" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.9007752" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.4883721" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.3298969" />
-      <window_info anchor="right" id="SciView" order="4" sideWeight="0.49884528" visible="true" weight="0.7272006" />
+      <window_info anchor="right" id="SciView" order="4" sideWeight="0.49884528" weight="0.7272006" />
       <window_info anchor="right" x="0" y="0" width="277" height="580" id="Documentation" order="5" sideWeight="0.5011547" side_tool="true" weight="0.3298969" />
     </layout>
   </component>
@@ -710,8 +717,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="962" column="33" selection-start-line="962" selection-start-column="33" selection-end-line="962" selection-end-column="33" />
+        <state relative-caret-position="22">
+          <caret line="960" column="33" selection-start-line="960" selection-start-column="33" selection-end-line="960" selection-end-column="33" />
           <folding>
             <element signature="e#378#389#0" expanded="true" />
           </folding>
