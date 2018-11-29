@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0bd5b045-7e28-42f7-a2a9-3e5bcf10451d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/20150803_gaode_offboard.txt" beforeDir="false" afterPath="$PROJECT_DIR$/20150803_gaode_offboard.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/20150803_gaode_onboard.txt" beforeDir="false" afterPath="$PROJECT_DIR$/20150803_gaode_onboard.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/both mode_try0602(3)maxiteration_4_0.7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/both mode_try0602(3)maxiteration_4_0.7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/lib/python2.7/orig-prefix.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python2.7/orig-prefix.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,8 +81,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="960" column="33" selection-start-line="960" selection-start-column="33" selection-end-line="960" selection-end-column="33" />
+            <state relative-caret-position="15">
+              <caret line="123" column="23" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
               <folding>
                 <element signature="e#378#389#0" expanded="true" />
               </folding>
@@ -182,17 +178,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="code" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -204,6 +189,17 @@
               <item name="code" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="read_file_py.py" type="8704e2dd:PyFileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="code" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -366,9 +362,9 @@
     <list>
       <item itemvalue="Python.VNS_both_final_dynamic_api_v6" />
       <item itemvalue="Python.VNS_both_final_dynamic_v7" />
+      <item itemvalue="Python.create_distance_dictionary" />
       <item itemvalue="Python.test_dictionary" />
       <item itemvalue="Python.test_dictionary_read" />
-      <item itemvalue="Python.create_distance_dictionary" />
     </list>
     <recent_temporary>
       <list>
@@ -403,11 +399,13 @@
       <workItem from="1543388497115" duration="14383000" />
       <workItem from="1543454734567" duration="1805000" />
       <workItem from="1543456609329" duration="851000" />
+      <workItem from="1543497154823" duration="5000" />
+      <workItem from="1543500434072" duration="624000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140591000" />
+    <option name="totallyTimeSpent" value="142073000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -421,7 +419,7 @@
   <component name="ToolWindowManager">
     <frame x="58" y="-11" width="1309" height="780" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499187" visible="true" weight="0.25297382" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499187" visible="true" weight="0.26090404" />
       <window_info id="Structure" order="1" sideWeight="0.50162864" side_tool="true" weight="0.24504362" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -435,7 +433,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.9007752" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2868217" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.4883721" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -717,8 +715,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="960" column="33" selection-start-line="960" selection-start-column="33" selection-end-line="960" selection-end-column="33" />
+        <state relative-caret-position="15">
+          <caret line="123" column="23" selection-start-line="123" selection-start-column="23" selection-end-line="123" selection-end-column="23" />
           <folding>
             <element signature="e#378#389#0" expanded="true" />
           </folding>

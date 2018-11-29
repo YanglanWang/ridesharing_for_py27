@@ -50,10 +50,22 @@ class Demand:
 
 
 class Route:
+    # def __init__(self, route_id, route_list, drop_time_list,customer_out_max, customer_in_tmp):
     def __init__(self, route_id, route_list, drop_time_list):
+
         self.route_id = route_id
         self.route_list = route_list
         self.drop_time_list = drop_time_list
+        # self.customer_out_max=customer_out_max
+        # self.customer_in_tmp=customer_in_tmp
+
+
+class Position:
+    def __init__(self, distance_increase, insert_position, insert_route_index):
+        self.distance_increase=distance_increase
+        self.insert_position=insert_position
+        self.insert_route_index=insert_route_index
+
 
 
 
