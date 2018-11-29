@@ -27,8 +27,8 @@ def manhattan_calculate( position_1, position_2 ):
 
 def euclidean_calculate(position_1, position_2):
     R_earth = 6371000
-    velocity = 8.33
-    c = math.acos(math.cos(90-position_2[1])*math.cos(90-position_1[1])+math.sin(90-position_2[1])*math.sin(90-position_1[1])*math.cos(position_2[0]-position_1[0]))
+    velocity = 10
+    c = math.acos(math.cos(position_2[1])*math.cos(position_1[1])*math.cos(position_1[0]-position_2[0])+math.sin(position_2[1])*math.sin(position_1[1]))
     distance = c*math.pi*R_earth/180
     duration = distance/velocity
     return duration

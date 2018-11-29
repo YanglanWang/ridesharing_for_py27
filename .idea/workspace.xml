@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bd5b045-7e28-42f7-a2a9-3e5bcf10451d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/create_distance_dictionary.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_dictionary.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_dictionary_read.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py" beforeDir="false" afterPath="$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/both mode_1123.txt" beforeDir="false" afterPath="$PROJECT_DIR$/both mode_1123.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/check2distance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/both mode_try0602(3)maxiteration_4_0.7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/both mode_try0602(3)maxiteration_4_0.7.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/distance_calculate.py" beforeDir="false" afterPath="$PROJECT_DIR$/distance_calculate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/read_file.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_file_py.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/read_file_py.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_file_py.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/someclass.py" beforeDir="false" afterPath="$PROJECT_DIR$/someclass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vrp_airport_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +20,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/code$VNS_both_final_dynamic_v7.coverage" NAME="VNS_both_final_dynamic_v7 Coverage Results" MODIFIED="1542957723348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/code$VNS_both_final_dynamic_api_v6.coverage" NAME="VNS_both_final_dynamic_api_v6 Coverage Results" MODIFIED="1543159975416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/code$test_dictionary_read.coverage" NAME="test_dictionary_read Coverage Results" MODIFIED="1543219333414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/code$VNS_both_final_dynamic_v7.coverage" NAME="VNS_both_final_dynamic_v7 Coverage Results" MODIFIED="1543324452377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/code$create_distance_dictionary.coverage" NAME="create_distance_dictionary Coverage Results" MODIFIED="1543221551855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/code$VNS_both_final_dynamic_api_v6.coverage" NAME="VNS_both_final_dynamic_api_v6 Coverage Results" MODIFIED="1543405030674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/code$test_dictionary.coverage" NAME="test_dictionary Coverage Results" MODIFIED="1543199961232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -39,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/read_file_py.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="47" column="55" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
+            <state relative-caret-position="2310">
+              <caret line="156" column="40" selection-start-line="156" selection-start-column="40" selection-end-line="156" selection-end-column="40" />
               <folding>
                 <element signature="e#23#41#0" expanded="true" />
               </folding>
@@ -49,15 +55,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/20150803_gaode_offboard.txt">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/someclass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="443">
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/distance_calculate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="27" column="13" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="13" />
+            <state relative-caret-position="585">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
               <folding>
                 <element signature="e#23#34#0" expanded="true" />
               </folding>
@@ -66,13 +79,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/someclass.py">
+        <entry file="file://$PROJECT_DIR$/create_distance_dictionary.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -80,10 +90,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1236">
-              <caret line="156" column="117" lean-forward="true" selection-start-line="156" selection-start-column="117" selection-end-line="156" selection-end-column="117" />
+            <state relative-caret-position="66">
+              <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
               <folding>
                 <element signature="e#378#389#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_v7.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7680">
+              <caret line="522" selection-start-line="522" selection-end-line="522" />
+              <folding>
+                <element signature="e#373#384#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,6 +144,9 @@
       <find>check</find>
       <find>drop_time_list</find>
       <find>2</find>
+      <find>18:37:59</find>
+      <find>read_file</find>
+      <find>customer_in</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -138,6 +163,9 @@
         <option value="$PROJECT_DIR$/demand.py" />
         <option value="$PROJECT_DIR$/check2distance.py" />
         <option value="$PROJECT_DIR$/read_file.py" />
+        <option value="$PROJECT_DIR$/test_dictionary.py" />
+        <option value="$PROJECT_DIR$/test_dictionary_read.py" />
+        <option value="$PROJECT_DIR$/create_distance_dictionary.py" />
         <option value="$PROJECT_DIR$/read_file_py.py" />
         <option value="$PROJECT_DIR$/distance_calculate.py" />
         <option value="$PROJECT_DIR$/someclass.py" />
@@ -145,7 +173,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="69" />
     <option name="y" value="-4" />
     <option name="width" value="1285" />
@@ -158,6 +186,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="code" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -169,17 +208,6 @@
               <item name="code" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="read_file_py.py" type="8704e2dd:PyFileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="code" type="b2602c69:ProjectViewProjectNode" />
-              <item name="code" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -273,13 +301,85 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="create_distance_dictionary" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/create_distance_dictionary.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_dictionary" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_dictionary.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_dictionary_read" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="code" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_dictionary_read.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.VNS_both_final_dynamic_api_v6" />
       <item itemvalue="Python.VNS_both_final_dynamic_v7" />
+      <item itemvalue="Python.test_dictionary" />
+      <item itemvalue="Python.test_dictionary_read" />
+      <item itemvalue="Python.create_distance_dictionary" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.VNS_both_final_dynamic_v7" />
+        <item itemvalue="Python.create_distance_dictionary" />
+        <item itemvalue="Python.test_dictionary_read" />
+        <item itemvalue="Python.test_dictionary" />
       </list>
     </recent_temporary>
   </component>
@@ -297,11 +397,19 @@
       <workItem from="1543077513446" duration="2094000" />
       <workItem from="1543110773116" duration="10075000" />
       <workItem from="1543141122115" duration="15305000" />
+      <workItem from="1543159932848" duration="12118000" />
+      <workItem from="1543216419973" duration="20600000" />
+      <workItem from="1543240258857" duration="1707000" />
+      <workItem from="1543246650916" duration="4350000" />
+      <workItem from="1543284815012" duration="18031000" />
+      <workItem from="1543311901967" duration="12508000" />
+      <workItem from="1543369208894" duration="7928000" />
+      <workItem from="1543388497115" duration="14383000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46310000" />
+    <option name="totallyTimeSpent" value="137935000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -315,13 +423,13 @@
   <component name="ToolWindowManager">
     <frame x="58" y="-11" width="1309" height="780" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15860428" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499187" visible="true" weight="0.24504362" />
+      <window_info id="Structure" order="1" sideWeight="0.50162864" side_tool="true" weight="0.24504362" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32868218" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39379844" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.37984496" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32868218" />
@@ -330,65 +438,194 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3379845" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.4108527" />
+      <window_info anchor="bottom" id="Python Console" order="12" visible="true" weight="0.5767442" />
       <window_info anchor="bottom" id="Messages" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.3298969" />
-      <window_info anchor="right" id="SciView" order="4" sideWeight="0.49884528" weight="0.24742268" />
+      <window_info active="true" anchor="right" id="SciView" order="4" sideWeight="0.49884528" visible="true" weight="0.7272006" />
       <window_info anchor="right" x="0" y="0" width="277" height="580" id="Documentation" order="5" sideWeight="0.5011547" side_tool="true" weight="0.3298969" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2854877" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3984496" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32868218" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.2139535" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="12" visible="true" weight="0.35193798" />
-      <window_info anchor="bottom" id="Messages" order="13" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.3298969" />
-      <window_info anchor="right" id="SciView" order="4" sideWeight="0.49884528" weight="0.3298969" />
-      <window_info anchor="right" x="0" y="0" width="277" height="580" id="Documentation" order="5" sideWeight="0.5011547" side_tool="true" weight="0.3298969" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>766</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>800</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>820</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>848</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>913</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_v7.py</url>
+          <line>522</line>
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>832</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>833</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>841</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>837</line>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>910</line>
+          <option name="timeStamp" value="180" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>936</line>
+          <option name="timeStamp" value="183" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>745</line>
+          <option name="timeStamp" value="187" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>652</line>
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>715</line>
+          <option name="timeStamp" value="192" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>713</line>
+          <option name="timeStamp" value="195" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>653</line>
+          <option name="timeStamp" value="197" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="len(whole_route)" language="Python" />
+        <watch expression="distance_dictionary[a.route_list[-1].id + '_' + customer_in_calculating[i].id]" language="Python" />
+        <watch expression="distance_dictionary[customer_in_calculating[i].id + '_' + 'airport']" language="Python" />
+        <watch expression="distance_dictionary[a.route_list[-1].id + '_' + 'airport']" language="Python" />
+        <watch expression="distance_dictionary[                                                 a.route_list[j - 1].id + '_' + a.route_list[j].id]" language="Python" />
+        <watch expression="distance_dictionary[customer_out_calculating[i].id + '_' + a.route_list[0].id]" language="Python" />
+        <watch expression="distance_dictionary['airport' + '_' + customer_out_calculating[i].id]" language="Python" />
+        <watch expression="distance_dictionary['airport' + '_' + a.route_list[0].id]" language="Python" />
+        <watch expression="a.route_list[0].position" language="Python" />
+        <watch expression="whole_route[0][0]" language="Python" />
+        <watch expression="distance_dictionary[a.route_list[k].id + '_' + a.route_list[k + 1].id]" language="Python" />
+        <watch expression="customer_out_cannot_service" language="Python" />
+        <watch expression="customer_in_calculating[i].on_time &lt; a.drop_time_list[-1]" language="Python" />
+        <watch expression="timestamp_1+a.drop_time_list[-1]" language="Python" />
+        <watch expression="a" language="Python" />
+        <watch expression="a" />
+        <watch expression="time_list[-1]" language="Python" />
+        <watch expression="route1.route_list[i:j]" language="Python" />
+        <watch expression="someclass.Route(None,[],[])" language="Python" />
+        <watch expression="check2distance( new_route_2, distance_dictionary )" language="Python" />
+        <watch expression="whole_route[1][2].route_list==None" language="Python" />
+        <watch expression="whole_route[1][2]" />
+        <watch expression="range(len(whole_route[1])-1,-1,-1)" language="Python" />
+        <watch expression="customer_in_calculating[i].on_time &lt; timestamp_1+a.drop_time_list[j+1]" language="Python" />
+        <watch expression="range(len(a.route_list)-1,-1,-1)" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>len(whole_route)</expression-string>
+        <expression-string>range(len(a.route_list)-1,-1,-1)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>VNS_both_final_dynamic_api_v6.distance_dictionary</expression-string>
+        <expression-string>customer_in_calculating[i].on_time &lt; timestamp_1+a.drop_time_list[j+1]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>customer!=None</expression-string>
+        <expression-string>customer_in_calculating[i].on_time &gt; timestamp_1+a.drop_time_list[j]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>a</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>range(len(whole_route[1])-1,-1,-1)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>whole_route[1][2].route_list==None</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>whole_route[1][2]==None</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>check2distance( new_route_2, distance_dictionary )</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>can_insert2, time_list2, distance_dictionary = check2distance( new_route_2, distance_dictionary )</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>someclass.Route(None,[],[])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>distance_dictionary.__len__()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -406,33 +643,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_v7.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3088">
-          <caret line="1044" column="38" lean-forward="true" selection-start-line="1044" selection-start-column="38" selection-end-line="1044" selection-end-column="38" />
-          <folding>
-            <element signature="e#373#384#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/20150803_gaode_onboard.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/check2distance.py">
+    <entry file="file://$PROJECT_DIR$/check2distance.py" />
+    <entry file="file://$PROJECT_DIR$/20150803_gaode_offboard.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret line="3" column="24" lean-forward="true" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        <state>
+          <caret column="186" lean-forward="true" selection-start-column="186" selection-end-column="186" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/20150803_gaode_offboard.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/test_dictionary">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" lean-forward="true" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_dictionary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_dictionary_read.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/read_file_py.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="47" column="55" selection-start-line="47" selection-start-column="55" selection-end-line="47" selection-end-column="55" />
+        <state relative-caret-position="2310">
+          <caret line="156" column="40" selection-start-line="156" selection-start-column="40" selection-end-line="156" selection-end-column="40" />
           <folding>
             <element signature="e#23#41#0" expanded="true" />
           </folding>
@@ -441,18 +687,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/distance_calculate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="13" />
+        <state relative-caret-position="585">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
           <folding>
             <element signature="e#23#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/create_distance_dictionary.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="56" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_v7.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7680">
+          <caret line="522" selection-start-line="522" selection-end-line="522" />
+          <folding>
+            <element signature="e#373#384#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/someclass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
+        <state relative-caret-position="443">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
@@ -461,8 +724,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1236">
-          <caret line="156" column="117" lean-forward="true" selection-start-line="156" selection-start-column="117" selection-end-line="156" selection-end-column="117" />
+        <state relative-caret-position="66">
+          <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
           <folding>
             <element signature="e#378#389#0" expanded="true" />
           </folding>
