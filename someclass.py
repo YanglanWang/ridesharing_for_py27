@@ -41,9 +41,13 @@ class Demand:
     def update_distance_dictionary( self, demand,distance_dictionary ):
 
         key1=self.id+'_'+demand.id
-        distance1 = distance_calculate.euclidean_calculate(self.position, demand.position)
+        # distance1 = distance_calculate.euclidean_calculate(self.position, demand.position)
+        distance1 = distance_calculate.manhattan_calculate(self.position, demand.position)
+
         key2=demand.id+'_'+self.id
-        distance2 = distance_calculate.euclidean_calculate(demand.position, self.position)
+        # distance2 = distance_calculate.euclidean_calculate(demand.position, self.position)
+        distance2 = distance_calculate.manhattan_calculate(demand.position, self.position)
+
         distance_dictionary[key1]=distance1
         distance_dictionary[key2]=distance2
         return distance_dictionary

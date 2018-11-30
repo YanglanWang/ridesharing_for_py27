@@ -194,7 +194,9 @@ def plot_a_simple_map( ready_route, filename ):
 
     pylab.title( filename )
     pylab.axis( 'off' )
+    pylab.savefig(filename)
     pylab.show()
+    # plt.savefig( 'fig_cat.png' )
 
 
 
@@ -670,6 +672,7 @@ def calculate_cutomer_out( customer_out_calculating, whole_route, distance_dicti
                 whole_route[0].append(route_tmp)
             else:
                 # insert_route.route_list.insert(insert_position, customer_out_calculating[i])
+                flag3=1
                 for p in range(len(available_positions)-1,-1,-1):
                     insert_route_index=available_positions[p].insert_route_index
                     insert_position=available_positions[p].insert_position
@@ -680,8 +683,9 @@ def calculate_cutomer_out( customer_out_calculating, whole_route, distance_dicti
 
                     if can_insert==1:
                         whole_route[0][insert_route_index].drop_time_list = time_list
+                        flag3=0
                         break
-                if p==0:#所有的位置都不行
+                if p==0 and flag3!=0:#所有的位置都不行
                     # 重新分配一辆车
                     # a.route_list.pop(insert_position)
                     # customer_out_cannot_service.append(customer_out_calculating[i])
@@ -790,6 +794,7 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
         # insert_route.route_list.insert( insert_position, customer_in_calculating[i] )
         # can_insert, time_list, distance_dictionary = check2distance(  insert_route, distance_dictionary )
 
+        flag3=1
         for p in range(len(available_positions) - 1, -1, -1):
             insert_route_index = available_positions[p].insert_route_index
             insert_position = available_positions[p].insert_position
@@ -803,8 +808,9 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
             if can_insert == 1 and exceed_capacity==0:
                 whole_route[1][insert_route_index].drop_time_list = time_list
                 customer_in_completed.append(customer_in_calculating[i])
+                flag3=0
                 break
-        if p == 0:  # 所有的位置都不行
+        if p == 0 and flag3!=0:  # 所有的位置都不行
             # 重新分配一辆车
             # a.route_list.pop(insert_position)
             # customer_out_cannot_service.append(customer_out_calculating[i])
@@ -1062,8 +1068,8 @@ for timestamp_1 in range( 1438531200, 1438617600, 900 ):
 
     customer_in = [v for v in customer_in if v not in customer_in_completed]
     # customer_in=customer_in-customer_in_completed
-    image_name = timestr_1 + "--" + timestr_2 + " final"
     for ready_route in whole_route[2][flag]:
+        image_name = timestr_1 + "--" + timestr_2 + " final: "+str(ready_route.route_id)
         plot_a_simple_map( ready_route, image_name )
 
 print("在整个模拟中，一直达不到进机场条件的订单有：")
