@@ -2,49 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bd5b045-7e28-42f7-a2a9-3e5bcf10451d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:00:00--00:15:00 final: 0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:00:00--00:15:00 final: 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:00:00--00:15:00 final: 10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:00:00--00:15:00 final: 11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:00:00--00:15:00 final: 12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:00:00--00:15:00 final: 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:00:00--00:15:00 final: 3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:00:00--00:15:00 final: 4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:00:00--00:15:00 final: 5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:00:00--00:15:00 final: 6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:00:00--00:15:00 final: 7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:00:00--00:15:00 final: 8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:00:00--00:15:00 final: 9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 26.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 27.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 28.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 29.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 31.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 33.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 34.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 35.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 36.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 37.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 38.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 39.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:15:00--00:30:00 final: 40.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py" beforeDir="false" afterPath="$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/both mode_1123.txt" beforeDir="false" afterPath="$PROJECT_DIR$/both mode_1123.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +15,7 @@
     <SUITE FILE_PATH="coverage/code$test_dictionary_read.coverage" NAME="test_dictionary_read Coverage Results" MODIFIED="1543219333414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/code$VNS_both_final_dynamic_v7.coverage" NAME="VNS_both_final_dynamic_v7 Coverage Results" MODIFIED="1543324452377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/code$create_distance_dictionary.coverage" NAME="create_distance_dictionary Coverage Results" MODIFIED="1543221551855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/code$VNS_both_final_dynamic_api_v6.coverage" NAME="VNS_both_final_dynamic_api_v6 Coverage Results" MODIFIED="1543827290665" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/code$VNS_both_final_dynamic_api_v6.coverage" NAME="VNS_both_final_dynamic_api_v6 Coverage Results" MODIFIED="1543854138949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/code$test_dictionary.coverage" NAME="test_dictionary Coverage Results" MODIFIED="1543199961232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
@@ -87,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="752" column="212" selection-start-line="752" selection-start-column="212" selection-end-line="752" selection-end-column="212" />
+            <state relative-caret-position="62">
+              <caret line="1159" column="28" selection-start-line="1159" selection-start-column="28" selection-end-line="1159" selection-end-column="28" />
               <folding>
                 <element signature="e#378#389#0" expanded="true" />
               </folding>
@@ -241,9 +200,6 @@
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/ridesharing/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -416,12 +372,12 @@
       <workItem from="1543560660213" duration="484000" />
       <workItem from="1543636950101" duration="2037000" />
       <workItem from="1543650071499" duration="1223000" />
-      <workItem from="1543817861951" duration="16306000" />
+      <workItem from="1543817861951" duration="29830000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169583000" />
+    <option name="totallyTimeSpent" value="183107000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -434,30 +390,29 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="-4" width="1307" height="772" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499187" visible="true" weight="0.28945282" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499187" visible="true" weight="0.28865978" />
       <window_info id="Structure" order="1" sideWeight="0.50162864" side_tool="true" weight="0.24504362" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32868218" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.07286822" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32868218" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.16899225" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3503876" />
-      <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5003965" side_tool="true" weight="0.3503876" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3782946" />
+      <window_info anchor="bottom" id="Messages" order="12" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="13" sideWeight="0.49960348" visible="true" weight="0.62945735" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.3298969" />
-      <window_info anchor="right" id="SciView" order="4" sideWeight="0.49884528" weight="0.72482157" />
+      <window_info anchor="right" id="SciView" order="4" sideWeight="0.49884528" visible="true" weight="0.7105472" />
       <window_info anchor="right" x="0" y="0" width="277" height="580" id="Documentation" order="5" sideWeight="0.5011547" side_tool="true" weight="0.3298969" />
     </layout>
   </component>
@@ -469,27 +424,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>788</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>823</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>847</line>
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>875</line>
+          <line>906</line>
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>940</line>
+          <line>971</line>
           <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -499,78 +439,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>859</line>
-          <option name="timeStamp" value="110" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>860</line>
-          <option name="timeStamp" value="113" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>868</line>
+          <line>899</line>
           <option name="timeStamp" value="115" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>864</line>
+          <line>895</line>
           <option name="timeStamp" value="117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>767</line>
-          <option name="timeStamp" value="187" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>945</line>
+          <line>976</line>
           <option name="timeStamp" value="198" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>967</line>
-          <option name="timeStamp" value="199" />
+          <line>1004</line>
+          <option name="timeStamp" value="222" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>633</line>
-          <option name="timeStamp" value="204" />
+          <line>1064</line>
+          <option name="timeStamp" value="226" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>970</line>
-          <option name="timeStamp" value="210" />
+          <line>1102</line>
+          <option name="timeStamp" value="231" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>406</line>
-          <option name="timeStamp" value="212" />
+          <line>1121</line>
+          <option name="timeStamp" value="236" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>322</line>
-          <option name="timeStamp" value="213" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>320</line>
-          <option name="timeStamp" value="214" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>318</line>
-          <option name="timeStamp" value="215" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>316</line>
-          <option name="timeStamp" value="216" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>435</line>
-          <option name="timeStamp" value="217" />
+          <line>1123</line>
+          <option name="timeStamp" value="237" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -601,11 +506,17 @@
         <watch expression="customer_in_calculating[i].on_time &lt; timestamp_1+a.drop_time_list[j+1]" language="Python" />
         <watch expression="range(len(a.route_list)-1,-1,-1)" language="Python" />
         <watch expression="distance_dictionary" />
+        <watch expression="whole_route!=None" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>whole_route!=None</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>range(len(a.route_list)-1,-1,-1)</expression-string>
         <language-id>Python</language-id>
@@ -648,11 +559,6 @@
       </expression>
       <expression>
         <expression-string>can_insert2, time_list2, distance_dictionary = check2distance( new_route_2, distance_dictionary )</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>someclass.Route(None,[],[])</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -762,8 +668,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="752" column="212" selection-start-line="752" selection-start-column="212" selection-end-line="752" selection-end-column="212" />
+        <state relative-caret-position="62">
+          <caret line="1159" column="28" selection-start-line="1159" selection-start-column="28" selection-end-line="1159" selection-end-column="28" />
           <folding>
             <element signature="e#378#389#0" expanded="true" />
           </folding>

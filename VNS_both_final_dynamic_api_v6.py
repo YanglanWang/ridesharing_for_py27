@@ -975,7 +975,7 @@ customer_out_calculated_route_id = 0
 whole_route=dict()
 flag=-1
 for timestamp_1 in range( 1438531200, 1438617600, 300 ):
-    flag=flag+1
+    # flag=flag+1
     customer_out_calculating = []  # 无顺序
     customer_in_calculating = []
     # customer_in_completed=[]
@@ -988,15 +988,23 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
     timestamp_2 = timestamp_1 + 300
     timestr_1 = time.strftime( "%H:%M:%S", time.localtime( timestamp_1 ) )
     timestr_2 = time.strftime( "%H:%M:%S", time.localtime( timestamp_2 ) )
-    f.write( "当前时间：" + timestr_1 + "--" + timestr_2 + '\n' )
-    print("当前时间：" + timestr_1 + "--" + timestr_2)
+    f.write( '\n'+"当前时间：" + timestr_1 + "--" + timestr_2 + '\n' )
+    print('\n'+"当前时间：" + timestr_1 + "--" + timestr_2)
 
     # whole_route = dict()
     for r in customer_out:
         if timestamp_1 < r.on_time < timestamp_2:
             customer_out_calculating.append( r )
     f.write( "此时段的出机场订单有：" + str( len( customer_out_calculating ) ) + '个\n' )
+
+    for r in customer_out:
+        if timestamp_1 < r.on_time < timestamp_2:
+            customer_out_calculating.append( r )
+
+
     if len(customer_out_calculating)!=0:
+        print("此时段的出机场订单有：" + str( len( customer_out_calculating ) ) + '个')
+        flag = flag + 1
         whole_route, customer_out_cannot_service, distance_dictionary= calculate_cutomer_out( customer_out_calculating, whole_route,
                                                                       distance_dictionary)
         #     inter_exchange
@@ -1011,6 +1019,11 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                     whole_route[1][l] = new_route2
 
 
+
+        for k in range(len(whole_route[1])-1,-1,-1):
+            if len(whole_route[1][k].route_list)==0:
+                whole_route[1].remove(whole_route[1][k])
+
         # inner_exchange
         for k in range(len(whole_route[1])):
             # plot_a_simple_map( whole_route[1][k], 'test_before'+str(k) )
@@ -1020,10 +1033,6 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
 
 
 
-
-        for k in range(len(whole_route[1])-1,-1,-1):
-            if len(whole_route[1][k].route_list)==0:
-                whole_route[1].remove(whole_route[1][k])
 
     # for k in range(len(whole_route[1])):
     #     whole_route[1][k].route_id=customer_out_calculated_route_id
@@ -1057,15 +1066,17 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
             f.write( "在此时间间隔内不能服务的出机场乘客是：" )
             for i in range( len( customer_out_cannot_service ) ):
                 f.write( customer_out_cannot_service[i].id + ', ' )
+            f.write('\n')
         else:
-            f.write("此时间段的出机场乘客都能被服务")
+            f.write("此时间段的出机场乘客都能被服务\n")
 
         if len(customer_out_cannot_service)!=0:
             print("在此时间间隔内不能服务的出机场乘客是：")
             for i in range( len( customer_out_cannot_service ) ):
                 print(customer_out_cannot_service[i].id + ', ')
+            print('\n')
         else:
-            print("此时间段的出机场乘客都能被服务")
+            print("此时间段的出机场乘客都能被服务\n")
 
 
     # this is not fully true! #we should select customer_in based on each route in whole_route[1]. Selecting customer from all customer_in
@@ -1083,13 +1094,14 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
         #     if timestamp_1 < r.on_time < latest_return_time+timestamp_1:
         #         customer_in_calculating.append( r )
 
-        f.write( "此时段能处理的入机场订单可能有：" + str( len( customer_in_calculating ) ) + '个\n' )
+        f.write( "此时段能处理的入机场订单可能有：" + str( len( customer_in_calculating ) ) + '个' )
+        print( "此时段能处理的入机场订单可能有：" + str( len( customer_in_calculating ) ) + '个' )
+
 
         # whole_route, customer_in_completed, distance_dictionary, customer_out_calculated_route_id= calculate_cutomer_in( customer_in_calculating, whole_route,
         #                                                                 distance_dictionary,timestamp_1,customer_out_calculated_route_id )
         whole_route, customer_in_uncompleted, distance_dictionary = calculate_cutomer_in(customer_in_calculating, whole_route,
             distance_dictionary, timestamp_2)
-
 
 
         #     inter_exchange
@@ -1102,6 +1114,10 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                     whole_route[2][flag][k]=new_route1
                     whole_route[2][flag][l]=new_route2
 
+        for k in range( len( whole_route[2][flag] ) - 1, -1, -1 ):
+            if len( whole_route[2][flag][k].route_list ) == 0:
+                whole_route[2][flag].remove( whole_route[2][flag][k] )
+
         # inner_exchange
         for k in range(len(whole_route[2][flag])):
             # plot_a_simple_map( whole_route[1][k], 'test_before'+str(k) )
@@ -1109,14 +1125,10 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
             # plot_a_simple_map( new_route, 'test_after'+str(k) )
             whole_route[2][flag][k]=new_route
 
-
-        for k in range(len(whole_route[2][flag])-1,-1,-1):
-            if len(whole_route[2][flag][k].route_list)==0:
-                whole_route[2][flag].remove(whole_route[2][flag][k])
-
         for k in range(len(whole_route[2][flag])):
             whole_route[2][flag][k].route_id=customer_out_calculated_route_id
             customer_out_calculated_route_id=customer_out_calculated_route_id+1
+
 
         if len(customer_in_uncompleted)==0:
             print("此时间段的入机场乘客都能被服务！")
@@ -1125,12 +1137,12 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
             for i in customer_in_uncompleted:
                 print(i.id+', ')
             customer_in_completed=[v for v in customer_in_calculating if v not in customer_in_uncompleted]
-            print("在此时间段能完成的入机场订单有："+str(len(customer_in_uncompleted))+'个\n他们是：')
+            print("在此时间段能完成的入机场订单有："+str(len(customer_in_completed))+'个\n他们是：')
             for i in customer_in_completed:
                 print(i.id+', ')
 
 
-        print("在此时间段完成的出入机场订单线路有：\n")
+        print('\n'+"在此时间段完成的出入机场订单线路有：\n")
         for i in whole_route[2][flag]:
             print(str(i.route_id)+': ')
             for j in i.route_list:
