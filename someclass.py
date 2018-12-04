@@ -4,11 +4,12 @@ import numpy as np
 
 
 class Demand:
-    def __init__(self, id, position, service_type, on_time):
+    def __init__(self, id, position, service_type, on_time, order_time):
         self.id=id
         self.position=position
         self.service_type=service_type
         self.on_time=on_time
+        self.order_time=order_time
         # self.off_time=off_time
 
     # def update_distance_dictionary( self, demands,distance_dictionary ):
@@ -55,11 +56,12 @@ class Demand:
 
 class Route:
     # def __init__(self, route_id, route_list, drop_time_list,customer_out_max, customer_in_tmp):
-    def __init__(self, route_id, route_list, drop_time_list):
+    def __init__(self, route_id, route_list, drop_time_list,car_id):
 
         self.route_id = route_id
         self.route_list = route_list
         self.drop_time_list = drop_time_list
+        self.car_id=car_id
         # self.customer_out_max=customer_out_max
         # self.customer_in_tmp=customer_in_tmp
 
