@@ -759,8 +759,8 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
     airport=someclass.Demand('airport',np.array([113.814, 22.623]),None,None,None)
     customer_in_uncomplete=[]
     time_window=5*60
-    find_position=0
     for i in range( 0, len( customer_in_calculating ) ):  # 表示现有需要计算的订单
+        find_position = 0
         #if timestamp_2<customer_in_calculating[i].on_time<timestamp_2+time_window:
 
             #先和在路上的线路匹配whole_route[4]
@@ -770,18 +770,23 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
                     available_positions=[]
                     distance_test = float( "inf" )
                     for x in range(len(whole_route[4])):
-                        if whole_route[4][x].start_time+whole_route[4][x].drop_time_list[-1]>customer_in_calculating[i].on_time:
+                        if whole_route[4][x].start_time+whole_route[4][x].drop_time_list[-1]>customer_in_calculating[i].on_time \
+                                and timestamp_2 < whole_route[4][x].start_time + whole_route[4][x].drop_time_list[-1]:
                             #对每一条线路check车运行到哪
-                            if timestamp_2<whole_route[4][x].start_time+whole_route[4][x].drop_time_list[0]:
+                            began=float("inf")
+                            if whole_route[4][x].start_time<timestamp_2<whole_route[4][x].start_time+whole_route[4][x].drop_time_list[0]:
                                 began=0
-                            elif timestamp_2>whole_route[4][x].start_time+whole_route[4][x].drop_time_list[-1]:
+                            elif whole_route[4][x].start_time+whole_route[4][x].drop_time_list[-2]<timestamp_2<\
+                                    whole_route[4][x].start_time+whole_route[4][x].drop_time_list[-1]:
                                 began=len(whole_route[4][x].route_list)
                             else:
                                 for y in range( len( whole_route[4][x].route_list ) - 1 ):
                                     if whole_route[4][x].start_time+whole_route[4][x].drop_time_list[y] < timestamp_2 < \
                                             whole_route[4][x].start_time+whole_route[4][x].drop_time_list[y + 1]:
                                         began = y + 1
-                                        break
+                                        # break
+                            if began==float("inf"):
+                                pass
                             for z in range(began, len(whole_route[4][x].drop_time_list)):
                                 new_insert=whole_route[4][x]
                                 new_insert.route_list.insert(z,customer_in_calculating[i])
@@ -847,8 +852,15 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
                         can_insert, time_list, distance_dictionary = check2distance( whole_route[4][available_positions[-1][2]], distance_dictionary )
                         whole_route[4][available_positions[-1][2]].drop_time_list=time_list
                         find_position=1
+                        print(customer_in_calculating[i].id+" can find position in current running route "+str(whole_route[4][available_positions[-1][2]].route_id)+
+                              ', including customers: ')
+                        for c in whole_route[4][available_positions[-1][2]].route_list:
+                            print(c.id+', '),
                     else:
-                        print("cannot find position in current running routes")
+                        print(customer_in_calculating[i].id+" cannot find position in current running routes")
+
+        else:
+            print("no running vehicles!")
 
 
         if find_position==0:
@@ -950,13 +962,22 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
                                     whole_route[1][available_positions[-1][2]], distance_dictionary )
                                 whole_route[1][available_positions[-1][2]].drop_time_list = time_list
                                 find_position = 1
+                                print(customer_in_calculating[i].id + " can find position in current running route " + str(
+                                    whole_route[1][available_positions[-1][2]].id ) +
+                                      ', including customers: ')
+                                for c in whole_route[1][available_positions[-1][2]].route_list:
+                                    print(c.id + ', '),
+                                print('/n')
                             else:
-                                    print("cannot find position in ready running routes")
+                                    print(customer_in_calculating[i].id+" cannot find position in ready running routes")
+            else:
+                print(customer_in_calculating[i].id+"\'s service time cannot match any ready running routes!")
         if find_position==0:
+            #这种重新派一辆车的情况应该就是不存在的，因为任意预约时间小于timestamp_2，更何况是最早预约时间,
             if 'airport' + '_' + customer_in_calculating[i].id not in distance_dictionary.keys():
                 distance_dictionary=airport.update_distance_dictionary(customer_in_calculating[i],distance_dictionary)
             if 0 <customer_in_calculating[i].on_time - distance_dictionary[
-                'airport' + '_' + customer_in_calculating[i].id] - timestamp_2 < 5*60: #出发时间还剩5分钟没匹配到的考虑派车
+                'airport' + '_' + customer_in_calculating[i].id] - timestamp_2 < 10*60: #出发时间还剩5分钟没匹配到的考虑派车
 
                 route_list_tmp = []
                 route_list_tmp.append( customer_in_calculating[i] )
@@ -971,7 +992,9 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
                 route_tmp = someclass.Route( None, route_list_tmp, time_list, None,None )
                 # customer_out_calculated_route_id = customer_out_calculated_route_id + 1
                 whole_route[1].append( route_tmp )
+                print(customer_in_calculating[i].id+"is arranged a new route.")
             else:
+                print(customer_in_calculating[i].id+"cannot reach the requirement that the departure time is within 10 minutes")
                 customer_in_uncomplete.append( customer_in_calculating[i] )
 
 
@@ -1252,7 +1275,7 @@ flag=-1
 car_T=[]
 car_F=[]
 timestamp_nocar=[]
-for i in range(30):
+for i in range(130):
     car_tmp='yue'+str(i)
     car_T.append(car_tmp)
 
@@ -1265,8 +1288,7 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
     # if timestamp_1==1438597800:
     #     pass
     # 每隔5min算一次
-    if timestamp_1==1438531200+10800:
-        pass
+
 
     start = time.clock()
     """时间戳表示实际时间，现实时间"""
@@ -1275,6 +1297,11 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
     timestr_2 = time.strftime( "%H:%M:%S", time.localtime( timestamp_2 ) )
     f.write( '\n'+"当前时间：" + timestr_1 + "--" + timestr_2 + '\n' )
     print('\n'+"当前时间：" + timestr_1 + "--" + timestr_2)
+    if timestamp_1==1438538100:
+        pass
+    if timestamp_1==1438533000:
+        pass
+
 
     # whole_route = dict()
     for r in customer_out:
@@ -1352,23 +1379,23 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                 f.write("在此时间间隔内的出机场乘客都不能被服务,有"+str(len(customer_out_uncomplete))+"个，他们是：")
                 print("在此时间间隔内的出机场乘客都不能被服务,有"+str(len(customer_out_uncomplete))+"个，他们是：")
                 for i in range( len( customer_out_uncomplete ) ):
-                    f.write( customer_out_uncomplete[i].id + ', ' )
-                    print(customer_out_uncomplete[i].id + ', ')
+                    f.write( customer_out_uncomplete[i].id + ', ' ),
+                    print(customer_out_uncomplete[i].id + ', '),
                 f.write( '\n' )
                 print('\n')
             else:
                 f.write("在此时间间隔内部分出机场乘客不能被服务，有"+str(len(customer_out_uncomplete))+"个，他们是：")
                 print("在此时间间隔内部分出机场乘客不能被服务，有"+str(len(customer_out_uncomplete))+"个，他们是：")
                 for i in range( len( customer_out_uncomplete ) ):
-                    f.write( customer_out_uncomplete[i].id + ', ' )
-                    print( customer_out_uncomplete[i].id + ', ' )
+                    f.write( customer_out_uncomplete[i].id + ', ' ),
+                    print( customer_out_uncomplete[i].id + ', ' ),
                 f.write( '\n' )
                 print('\n')
                 f.write("能被服务的有"+str(len(customer_out_complete))+"个,他们是：")
                 print("能被服务的有"+str(len(customer_out_complete))+"个,他们是：")
                 for i in range( len( customer_out_complete ) ):
-                    f.write( customer_out_complete[i].id + ', ' )
-                    print( customer_out_complete[i].id + ', ' )
+                    f.write( customer_out_complete[i].id + ', ' ),
+                    print( customer_out_complete[i].id + ', ' ),
 
                 f.write( '\n' )            # f.write( "在此时间间隔内不能服务的出机场乘客是：" )
                 print('\n')
@@ -1378,8 +1405,8 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
 
         # f.write( "在此时间间隔内能服务的出机场乘客是：" )
             for i in range( len( customer_out_complete ) ):
-                f.write( customer_out_complete[i].id + ', ' )
-                print( customer_out_complete[i].id + ', ' )
+                f.write( customer_out_complete[i].id + ', ' ),
+                print( customer_out_complete[i].id + ', ' ),
         # f.write( '\n' )
     else:
         print("此时间段没有出机场的乘客！")
@@ -1419,23 +1446,23 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                 f.write("在此时间间隔内的入机场乘客都不能被服务,有"+str(len(customer_in_uncomplete))+"个，他们是：")
                 print("在此时间间隔内的入机场乘客都不能被服务,有"+str(len(customer_in_uncomplete))+"个，他们是：")
                 for i in range( len( customer_in_uncomplete ) ):
-                    f.write( customer_in_uncomplete[i].id + ', ' )
-                    print(customer_in_uncomplete[i].id + ', ')
+                    f.write( customer_in_uncomplete[i].id + ', ' ),
+                    print(customer_in_uncomplete[i].id + ', '),
                 f.write( '\n' )
                 print('\n')
             else:
                 f.write("在此时间间隔内部分入机场乘客不能被服务，有"+str(len(customer_in_uncomplete))+"个，他们是：")
-                print("在此时间间隔内部分如机场乘客不能被服务，有"+str(len(customer_in_uncomplete))+"个，他们是：")
+                print("在此时间间隔内部分入机场乘客不能被服务，有"+str(len(customer_in_uncomplete))+"个，他们是：")
                 for i in range( len( customer_in_uncomplete ) ):
-                    f.write( customer_in_uncomplete[i].id + ', ' )
-                    print( customer_in_uncomplete[i].id + ', ' )
+                    f.write( customer_in_uncomplete[i].id + ', ' ),
+                    print( customer_in_uncomplete[i].id + ', ' ),
                 f.write( '\n' )
                 print('\n')
                 f.write("能被服务的有"+str(len(customer_in_complete))+"个,他们是：")
                 print("能被服务的有"+str(len(customer_in_complete))+"个,他们是：")
                 for i in range( len( customer_in_complete ) ):
-                    f.write( customer_in_complete[i].id + ', ' )
-                    print( customer_in_complete[i].id + ', ' )
+                    f.write( customer_in_complete[i].id + ', ' ),
+                    print( customer_in_complete[i].id + ', ' ),
 
                 f.write( '\n' )            # f.write( "在此时间间隔内不能服务的出机场乘客是：" )
                 print('\n')
@@ -1445,8 +1472,8 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
 
         # f.write( "在此时间间隔内能服务的出机场乘客是：" )
             for i in range( len( customer_in_complete ) ):
-                f.write( customer_in_complete[i].id + ', ' )
-                print( customer_in_complete[i].id + ', ' )
+                f.write( customer_in_complete[i].id + ', ' ),
+                print( customer_in_complete[i].id + ', ' ),
 
 
 
@@ -1507,9 +1534,10 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                 for i in whole_route[2][flag]:
                     image_name = timestr_1 + "--" + timestr_2 + " final: "+str(i.route_id)
                     plot_a_simple_map( i, image_name )
-                    print(str( i.route_id ) + ': ' + '车牌号：' + i.car_id)
+                    print(str( i.route_id ) + ': ' + '车牌号：' + i.car_id),
                     for j in i.route_list:
-                        print(j.id + ', ')
+                        print(j.id + ', '),
+                    print('\n')
 
                 for k in range( len( whole_route[2][flag] ) ):
                     whole_route[2][flag][k].start_time=timestamp_2
@@ -1527,7 +1555,7 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                 if len(whole_route[3])!=0:
                     print("有些线路暂时没车，包括：")
                     for i in whole_route[3]:
-                        print(str( i.route_id ) + ', ')
+                        print(str( i.route_id ) + ', '),
 
 
 
@@ -1543,20 +1571,21 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                         whole_route[5].append(complete_route)
                     whole_route[4].remove(complete_route)
 
-                    if len(whole_route[3])!=0:
-                        whole_route[3][0].car_id=car_id_tmp
-                        print("线路"+str(whole_route[3][0].route_id)+"等到了车"+car_id_tmp+"，服务的乘客有：")
-                        image_name = timestr_1 + "--" + timestr_2 + " final: " + str( whole_route[3][0].route_id )
-                        plot_a_simple_map( whole_route[3][0], image_name )
-                        for j in whole_route[3][0].route_list:
-                            print(j.id+', ')
-                        route_havecar=whole_route[3][0]
-                        route_havecar.start_time=timestamp_2
-                        whole_route[4].append(route_havecar)
-                        whole_route[3].remove(route_havecar)
-                    else:
-                        car_T.append(car_id_tmp)
-                        car_F.remove(car_id_tmp)
+                    if 3 in whole_route.keys():
+                        if len(whole_route[3])!=0:
+                            whole_route[3][0].car_id=car_id_tmp
+                            print("线路"+str(whole_route[3][0].route_id)+"等到了车"+car_id_tmp+"，服务的乘客有：")
+                            image_name = timestr_1 + "--" + timestr_2 + " final: " + str( whole_route[3][0].route_id )
+                            plot_a_simple_map( whole_route[3][0], image_name )
+                            for j in whole_route[3][0].route_list:
+                                print(j.id+', '),
+                            route_havecar=whole_route[3][0]
+                            route_havecar.start_time=timestamp_2
+                            whole_route[4].append(route_havecar)
+                            whole_route[3].remove(route_havecar)
+                        else:
+                            car_T.append(car_id_tmp)
+                            car_F.remove(car_id_tmp)
 
 
 
