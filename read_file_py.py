@@ -52,7 +52,8 @@ def read_file1(filename, file_type, distance_dictionary):
                     if 'airport'+'_'+id not in distance_dictionary.keys():
                         temp_request=someclass.Demand(id,position,file_type,timestamp,0)
                         distance_dictionary=airport.update_distance_dictionary(temp_request,distance_dictionary)
-                    order_time=timestamp-distance_dictionary['airport'+'_'+id]*random.random()
+
+                    order_time=timestamp-3600*(1+1.5*random.random())
                 r=someclass.Demand(id,position,file_type,timestamp,order_time)
                 # if len(customer)!=0:
                 #     distance_dictionary = r.update_distance_dictionary(customer, distance_dictionary)

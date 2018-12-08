@@ -589,7 +589,8 @@ def calculate_cutomer_out( timestamp_2, customer_out_calculating, whole_route, d
             flag2=0
             distance_test = float( "inf" )
             available_positions=[]
-            if (len( whole_route ) == 0) or whole_route[0]==None:
+            # if (len( whole_route ) == 0) or 0 not in whole_route.keys():
+            if 0 not in whole_route.keys() or whole_route[0]==None or len(whole_route[0])==0:
                 # key = 'airport' + '_' + customer_out_calculating[i].id
                 route_list_tmp = []
                 route_list_tmp.append(customer_out_calculating[0])
@@ -772,6 +773,7 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
                     for x in range(len(whole_route[4])):
                         if whole_route[4][x].start_time+whole_route[4][x].drop_time_list[-1]>customer_in_calculating[i].on_time \
                                 and timestamp_2 < whole_route[4][x].start_time + whole_route[4][x].drop_time_list[-1]:
+                        # if timestamp_2 < whole_route[4][x].start_time + whole_route[4][x].drop_time_list[-1]:
                             #对每一条线路check车运行到哪
                             began=float("inf")
                             if whole_route[4][x].start_time<timestamp_2<whole_route[4][x].start_time+whole_route[4][x].drop_time_list[0]:
@@ -856,6 +858,8 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
                               ', including customers: ')
                         for c in whole_route[4][available_positions[-1][2]].route_list:
                             print(c.id+', '),
+                        print('/n')
+                        plot_a_simple_map(whole_route[4][available_positions[-1][2]],str(whole_route[4][available_positions[-1][2]].route_id))
                     else:
                         print(customer_in_calculating[i].id+" cannot find position in current running routes")
 
@@ -881,7 +885,8 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
                                     #该乘客希望上车时间在该线路回到机场时间之内
 
                                     for b in range(0, len( whole_route[1][a].drop_time_list ) ):#b表示每条线路中的不同位置
-                                        new_insert = whole_route[1][a].route_list.insert( b,customer_in_calculating[i] )
+                                        new_insert = whole_route[1][a]
+                                        new_insert.route_list.insert( b,customer_in_calculating[i] )
                                         exceed_capacity, distance_dictionary = check_capacity( new_insert,
                                                                                                distance_dictionary )
                                         can_insert, time_list, distance_dictionary = check2distance( new_insert,
@@ -952,7 +957,7 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
 
                                             if expected_pick_time < customer_in_calculating[
                                                 i].on_time and distance_increase < distance_test:
-                                                available_positions.append( [distance_increase, z, x] )
+                                                available_positions.append( [distance_increase, b, a] )
                                                 distance_test = distance_increase
 
                             if len( available_positions ) != 0:
@@ -963,11 +968,12 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
                                 whole_route[1][available_positions[-1][2]].drop_time_list = time_list
                                 find_position = 1
                                 print(customer_in_calculating[i].id + " can find position in current running route " + str(
-                                    whole_route[1][available_positions[-1][2]].id ) +
+                                    whole_route[1][available_positions[-1][2]].route_id ) +
                                       ', including customers: ')
                                 for c in whole_route[1][available_positions[-1][2]].route_list:
                                     print(c.id + ', '),
                                 print('/n')
+                                plot_a_simple_map(whole_route[1][available_positions[-1][2]],str(whole_route[1][available_positions[-1][2]].route_id ))
                             else:
                                     print(customer_in_calculating[i].id+" cannot find position in ready running routes")
             else:
@@ -991,7 +997,13 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
 
                 route_tmp = someclass.Route( None, route_list_tmp, time_list, None,None )
                 # customer_out_calculated_route_id = customer_out_calculated_route_id + 1
-                whole_route[1].append( route_tmp )
+                if 1 in whole_route.keys() and whole_route[1]!=None:
+                    whole_route[1].append( route_tmp )
+                else:
+                    route_tmp_new=[]
+                    route_tmp_new.append(route_tmp)
+                    whole_route[1]=route_tmp_new
+
                 print(customer_in_calculating[i].id+"is arranged a new route.")
             else:
                 print(customer_in_calculating[i].id+"cannot reach the requirement that the departure time is within 10 minutes")
@@ -1299,7 +1311,7 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
     print('\n'+"当前时间：" + timestr_1 + "--" + timestr_2)
     if timestamp_1==1438538100:
         pass
-    if timestamp_1==1438533000:
+    if timestamp_1==1438533900:
         pass
 
 
@@ -1560,6 +1572,8 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
 
 
             for complete_route in whole_route[4]:
+                if complete_route.start_time+complete_route.drop_time_list[-2]<timestamp_1:
+                    pass
                 if complete_route.start_time+complete_route.drop_time_list[-1]<timestamp_1:
                     car_id_tmp=complete_route.car_id
                     if 5 not in whole_route.keys():

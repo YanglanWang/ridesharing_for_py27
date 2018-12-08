@@ -3,51 +3,83 @@
   <component name="ChangeListManager">
     <list default="true" id="0bd5b045-7e28-42f7-a2a9-3e5bcf10451d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:05:00--00:10:00 final: 1.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:05:00--00:10:00 final: 1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:05:00--00:10:00 final: 2.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:05:00--00:10:00 final: 2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:10:00--00:15:00 final: 4.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:10:00--00:15:00 final: 4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:10:00--00:15:00 final: 5.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:10:00--00:15:00 final: 5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:10:00--00:15:00 final: 6.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:10:00--00:15:00 final: 6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:10:00--00:15:00 final: 7.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:10:00--00:15:00 final: 7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:15:00--00:20:00 final: 10.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:15:00--00:20:00 final: 10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:15:00--00:20:00 final: 8.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:15:00--00:20:00 final: 8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:15:00--00:20:00 final: 9.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:15:00--00:20:00 final: 9.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00:20:00--00:25:00 final: 10.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:20:00--00:25:00 final: 10.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00:20:00--00:25:00 final: 11.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:20:00--00:25:00 final: 11.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00:20:00--00:25:00 final: 12.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:20:00--00:25:00 final: 12.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00:20:00--00:25:00 final: 13.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:20:00--00:25:00 final: 13.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:25:00--00:30:00 final: 14.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:25:00--00:30:00 final: 14.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:25:00--00:30:00 final: 15.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:25:00--00:30:00 final: 15.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:25:00--00:30:00 final: 16.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:25:00--00:30:00 final: 16.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00:30:00--00:35:00 final: 19.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:30:00--00:35:00 final: 19.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00:30:00--00:35:00 final: 20.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:30:00--00:35:00 final: 20.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:50:00--00:55:00 final: 30.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:50:00--00:55:00 final: 30.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:35:00--00:40:00 final: 21.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:35:00--00:40:00 final: 21.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:35:00--00:40:00 final: 22.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:35:00--00:40:00 final: 22.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:35:00--00:40:00 final: 23.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:35:00--00:40:00 final: 23.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:40:00--00:45:00 final: 25.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:40:00--00:45:00 final: 25.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:40:00--00:45:00 final: 26.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:40:00--00:45:00 final: 26.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:45:00--00:50:00 final: 28.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:45:00--00:50:00 final: 28.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:45:00--00:50:00 final: 29.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:45:00--00:50:00 final: 29.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00:50:00--00:55:00 final: 31.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:50:00--00:55:00 final: 31.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00:50:00--00:55:00 final: 32.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:50:00--00:55:00 final: 32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/00:55:00--01:00:00 final: 33.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:55:00--01:00:00 final: 33.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/00:50:00--00:55:00 final: 33.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:50:00--00:55:00 final: 33.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00:55:00--01:00:00 final: 34.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:55:00--01:00:00 final: 34.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00:55:00--01:00:00 final: 35.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:55:00--01:00:00 final: 35.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/00:55:00--01:00:00 final: 36.png" beforeDir="false" afterPath="$PROJECT_DIR$/00:55:00--01:00:00 final: 36.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01:00:00--01:05:00 final: 37.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:00:00--01:05:00 final: 37.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01:00:00--01:05:00 final: 38.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:00:00--01:05:00 final: 38.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01:00:00--01:05:00 final: 39.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:00:00--01:05:00 final: 39.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:05:00--01:10:00 final: 41.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:05:00--01:10:00 final: 41.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01:00:00--01:05:00 final: 40.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:00:00--01:05:00 final: 40.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01:00:00--01:05:00 final: 41.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:00:00--01:05:00 final: 41.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01:05:00--01:10:00 final: 42.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:05:00--01:10:00 final: 42.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01:05:00--01:10:00 final: 43.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:05:00--01:10:00 final: 43.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:10:00--01:15:00 final: 45.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:10:00--01:15:00 final: 45.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01:05:00--01:10:00 final: 45.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:05:00--01:10:00 final: 45.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01:10:00--01:15:00 final: 46.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:10:00--01:15:00 final: 46.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01:10:00--01:15:00 final: 47.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:10:00--01:15:00 final: 47.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01:10:00--01:15:00 final: 48.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:10:00--01:15:00 final: 48.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01:10:00--01:15:00 final: 49.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:10:00--01:15:00 final: 49.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01:10:00--01:15:00 final: 50.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:10:00--01:15:00 final: 50.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01:15:00--01:20:00 final: 50.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:15:00--01:20:00 final: 50.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01:15:00--01:20:00 final: 51.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:15:00--01:20:00 final: 51.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01:15:00--01:20:00 final: 52.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:15:00--01:20:00 final: 52.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:20:00--01:25:00 final: 54.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:20:00--01:25:00 final: 54.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:20:00--01:25:00 final: 55.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:20:00--01:25:00 final: 55.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:20:00--01:25:00 final: 56.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:20:00--01:25:00 final: 56.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:25:00--01:30:00 final: 59.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:25:00--01:30:00 final: 59.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:25:00--01:30:00 final: 60.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:25:00--01:30:00 final: 60.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:25:00--01:30:00 final: 61.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:25:00--01:30:00 final: 61.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:30:00--01:35:00 final: 63.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:30:00--01:35:00 final: 63.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:30:00--01:35:00 final: 64.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:30:00--01:35:00 final: 64.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:30:00--01:35:00 final: 65.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:30:00--01:35:00 final: 65.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01:15:00--01:20:00 final: 53.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:15:00--01:20:00 final: 53.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01:15:00--01:20:00 final: 54.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:15:00--01:20:00 final: 54.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01:30:00--01:35:00 final: 62.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:30:00--01:35:00 final: 62.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01:35:00--01:40:00 final: 66.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:35:00--01:40:00 final: 66.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01:35:00--01:40:00 final: 67.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:35:00--01:40:00 final: 67.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:35:00--01:40:00 final: 68.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:35:00--01:40:00 final: 68.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:40:00--01:45:00 final: 70.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:40:00--01:45:00 final: 70.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:40:00--01:45:00 final: 71.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:40:00--01:45:00 final: 71.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:45:00--01:50:00 final: 72.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:45:00--01:50:00 final: 72.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:45:00--01:50:00 final: 73.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:45:00--01:50:00 final: 73.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:45:00--01:50:00 final: 74.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:45:00--01:50:00 final: 74.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01:45:00--01:50:00 final: 75.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:45:00--01:50:00 final: 75.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01:55:00--02:00:00 final: 78.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:55:00--02:00:00 final: 78.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01:55:00--02:00:00 final: 79.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:55:00--02:00:00 final: 79.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01:55:00--02:00:00 final: 80.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:55:00--02:00:00 final: 80.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/01:55:00--02:00:00 final: 81.png" beforeDir="false" afterPath="$PROJECT_DIR$/01:55:00--02:00:00 final: 81.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02:10:00--02:15:00 final: 88.png" beforeDir="false" afterPath="$PROJECT_DIR$/02:10:00--02:15:00 final: 88.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02:30:00--02:35:00 final: 97.png" beforeDir="false" afterPath="$PROJECT_DIR$/02:30:00--02:35:00 final: 97.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02:30:00--02:35:00 final: 98.png" beforeDir="false" afterPath="$PROJECT_DIR$/02:30:00--02:35:00 final: 98.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02:30:00--02:35:00 final: 99.png" beforeDir="false" afterPath="$PROJECT_DIR$/02:30:00--02:35:00 final: 99.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02:35:00--02:40:00 final: 100.png" beforeDir="false" afterPath="$PROJECT_DIR$/02:35:00--02:40:00 final: 100.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02:35:00--02:40:00 final: 101.png" beforeDir="false" afterPath="$PROJECT_DIR$/02:35:00--02:40:00 final: 101.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02:35:00--02:40:00 final: 102.png" beforeDir="false" afterPath="$PROJECT_DIR$/02:35:00--02:40:00 final: 102.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02:45:00--02:50:00 final: 106.png" beforeDir="false" afterPath="$PROJECT_DIR$/02:45:00--02:50:00 final: 106.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02:50:00--02:55:00 final: 108.png" beforeDir="false" afterPath="$PROJECT_DIR$/02:50:00--02:55:00 final: 108.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02:50:00--02:55:00 final: 109.png" beforeDir="false" afterPath="$PROJECT_DIR$/02:50:00--02:55:00 final: 109.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02:55:00--03:00:00 final: 111.png" beforeDir="false" afterPath="$PROJECT_DIR$/02:55:00--03:00:00 final: 111.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03:00:00--03:05:00 final: 113.png" beforeDir="false" afterPath="$PROJECT_DIR$/03:00:00--03:05:00 final: 113.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03:35:00--03:40:00 final: 116.png" beforeDir="false" afterPath="$PROJECT_DIR$/03:35:00--03:40:00 final: 116.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03:40:00--03:45:00 final: 117.png" beforeDir="false" afterPath="$PROJECT_DIR$/03:40:00--03:45:00 final: 117.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03:40:00--03:45:00 final: 118.png" beforeDir="false" afterPath="$PROJECT_DIR$/03:40:00--03:45:00 final: 118.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03:45:00--03:50:00 final: 118.png" beforeDir="false" afterPath="$PROJECT_DIR$/03:45:00--03:50:00 final: 118.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03:45:00--03:50:00 final: 119.png" beforeDir="false" afterPath="$PROJECT_DIR$/03:45:00--03:50:00 final: 119.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03:45:00--03:50:00 final: 120.png" beforeDir="false" afterPath="$PROJECT_DIR$/03:45:00--03:50:00 final: 120.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py" beforeDir="false" afterPath="$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/both mode_1123.txt" beforeDir="false" afterPath="$PROJECT_DIR$/both mode_1123.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/read_file_py.py" beforeDir="false" afterPath="$PROJECT_DIR$/read_file_py.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +91,7 @@
     <SUITE FILE_PATH="coverage/code$test_dictionary_read.coverage" NAME="test_dictionary_read Coverage Results" MODIFIED="1543219333414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/code$VNS_both_final_dynamic_v7.coverage" NAME="VNS_both_final_dynamic_v7 Coverage Results" MODIFIED="1543324452377" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/code$create_distance_dictionary.coverage" NAME="create_distance_dictionary Coverage Results" MODIFIED="1543221551855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/code$VNS_both_final_dynamic_api_v6.coverage" NAME="VNS_both_final_dynamic_api_v6 Coverage Results" MODIFIED="1544187491380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/code$VNS_both_final_dynamic_api_v6.coverage" NAME="VNS_both_final_dynamic_api_v6 Coverage Results" MODIFIED="1544239378806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/code$test_dictionary.coverage" NAME="test_dictionary Coverage Results" MODIFIED="1543199961232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
@@ -90,8 +122,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2722">
-              <caret line="785" column="53" selection-start-line="785" selection-start-column="53" selection-end-line="785" selection-end-column="53" />
+            <state relative-caret-position="-45">
+              <caret line="1031" column="83" selection-start-line="1031" selection-start-column="83" selection-end-line="1031" selection-end-column="83" />
               <folding>
                 <element signature="e#378#389#0" expanded="true" />
               </folding>
@@ -100,19 +132,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_umd.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="197" selection-start-line="197" selection-end-line="197" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/read_file_py.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="54" column="94" selection-start-line="54" selection-start-column="94" selection-end-line="54" selection-end-column="94" />
+            <state relative-caret-position="58">
+              <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
               <folding>
                 <element signature="e#23#41#0" expanded="true" />
               </folding>
@@ -123,7 +146,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/someclass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-650">
+            <state relative-caret-position="105">
               <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
@@ -196,9 +219,9 @@
         <option value="$PROJECT_DIR$/create_request_time.py" />
         <option value="$PROJECT_DIR$/sfa.py" />
         <option value="$PROJECT_DIR$/jfsa.py" />
-        <option value="$PROJECT_DIR$/read_file_py.py" />
         <option value="$PROJECT_DIR$/someclass.py" />
         <option value="$PROJECT_DIR$/ll.py" />
+        <option value="$PROJECT_DIR$/read_file_py.py" />
         <option value="$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py" />
       </list>
     </option>
@@ -269,9 +292,6 @@
       <module name="code" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="$USER_HOME$/anaconda3/envs/ridesharing/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -476,11 +496,12 @@
       <workItem from="1543974924883" duration="27241000" />
       <workItem from="1544058942603" duration="33665000" />
       <workItem from="1544105371617" duration="23623000" />
+      <workItem from="1544187698459" duration="26809000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="297315000" />
+    <option name="totallyTimeSpent" value="324124000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -494,28 +515,28 @@
   <component name="ToolWindowManager">
     <frame x="58" y="-11" width="1309" height="780" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499187" visible="true" weight="0.22521809" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499187" weight="0.22918318" />
       <window_info id="Structure" order="1" sideWeight="0.50162864" side_tool="true" weight="0.24504362" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32868218" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49881047" weight="0.29147288" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.80174464" weight="0.55813956" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49960348" weight="0.32868218" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="10" sideWeight="0.50118953" side_tool="true" visible="true" weight="0.13643411" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49960348" weight="0.37209302" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.2854877" side_tool="true" visible="true" weight="0.35658914" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49881047" weight="0.37209302" />
       <window_info anchor="bottom" id="Messages" order="12" />
-      <window_info anchor="bottom" id="Python Console" order="13" sideWeight="0.49881047" weight="0.34573644" />
+      <window_info anchor="bottom" id="Python Console" order="13" sideWeight="0.7145123" visible="true" weight="0.35658914" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.3298969" />
-      <window_info anchor="right" id="SciView" order="4" sideWeight="0.49884528" visible="true" weight="0.26169705" />
+      <window_info active="true" anchor="right" id="SciView" order="4" sideWeight="0.49884528" visible="true" weight="0.37827122" />
       <window_info anchor="right" x="0" y="0" width="277" height="580" id="Documentation" order="5" sideWeight="0.5011547" side_tool="true" weight="0.3298969" />
     </layout>
     <layout-to-restore>
@@ -552,180 +573,111 @@
       <breakpoints>
         <line-breakpoint suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>1552</line>
-          <option name="timeStamp" value="380" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>1562</line>
-          <option name="timeStamp" value="383" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>1510</line>
-          <option name="timeStamp" value="386" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>1516</line>
+          <line>1529</line>
           <option name="timeStamp" value="389" />
         </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>1531</line>
-          <option name="timeStamp" value="390" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>1299</line>
-          <option name="timeStamp" value="412" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>1372</line>
-          <option name="timeStamp" value="416" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>1429</line>
-          <option name="timeStamp" value="418" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>1435</line>
-          <option name="timeStamp" value="419" />
-        </line-breakpoint>
-        <line-breakpoint suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>1437</line>
-          <option name="timeStamp" value="420" />
+          <line>1314</line>
+          <option name="timeStamp" value="461" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>788</line>
-          <option name="timeStamp" value="424" />
+          <line>963</line>
+          <option name="timeStamp" value="471" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>1301</line>
-          <option name="timeStamp" value="425" />
+          <line>1577</line>
+          <option name="timeStamp" value="474" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
-          <line>980</line>
-          <option name="timeStamp" value="427" />
+          <line>1575</line>
+          <option name="timeStamp" value="475" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>1448</line>
+          <option name="timeStamp" value="476" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py</url>
+          <line>987</line>
+          <option name="timeStamp" value="479" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="distance_dictionary[a.route_list[-1].id + '_' + customer_in_calculating[i].id]" language="Python" />
-        <watch expression="distance_dictionary[customer_in_calculating[i].id + '_' + 'airport']" language="Python" />
-        <watch expression="distance_dictionary[a.route_list[-1].id + '_' + 'airport']" language="Python" />
-        <watch expression="distance_dictionary[                                                 a.route_list[j - 1].id + '_' + a.route_list[j].id]" language="Python" />
-        <watch expression="distance_dictionary[customer_out_calculating[i].id + '_' + a.route_list[0].id]" language="Python" />
-        <watch expression="distance_dictionary['airport' + '_' + customer_out_calculating[i].id]" language="Python" />
-        <watch expression="distance_dictionary['airport' + '_' + a.route_list[0].id]" language="Python" />
-        <watch expression="a.route_list[0].position" language="Python" />
-        <watch expression="whole_route[0][0]" language="Python" />
-        <watch expression="distance_dictionary[a.route_list[k].id + '_' + a.route_list[k + 1].id]" language="Python" />
-        <watch expression="customer_out_cannot_service" language="Python" />
-        <watch expression="customer_in_calculating[i].on_time &lt; a.drop_time_list[-1]" language="Python" />
-        <watch expression="timestamp_1+a.drop_time_list[-1]" language="Python" />
-        <watch expression="a" language="Python" />
-        <watch expression="a" />
-        <watch expression="time_list[-1]" language="Python" />
-        <watch expression="route1.route_list[i:j]" language="Python" />
-        <watch expression="someclass.Route(None,[],[])" language="Python" />
-        <watch expression="check2distance( new_route_2, distance_dictionary )" language="Python" />
-        <watch expression="whole_route[1][2].route_list==None" language="Python" />
-        <watch expression="whole_route[1][2]" />
-        <watch expression="range(len(whole_route[1])-1,-1,-1)" language="Python" />
-        <watch expression="customer_in_calculating[i].on_time &lt; timestamp_1+a.drop_time_list[j+1]" language="Python" />
-        <watch expression="range(len(a.route_list)-1,-1,-1)" language="Python" />
-        <watch expression="distance_dictionary" />
-        <watch expression="whole_route!=None" language="Python" />
-        <watch expression="timestamp_2+a.drop_time_list[j]+distance_dictionary[a.route_list[j].id+'_'+customer_in_calculating[i].id]" language="Python" />
-        <watch expression="customer_in_calculating[i].on_time-distance_dictionary['airport' + '_' + customer_in_calculating[i].id]" language="Python" />
-        <watch expression="len(whole_route[1])" language="Python" />
-        <watch expression="customer_in_calculating[i].on_time-distance_dictionary['airport' + '_' + customer_in_calculating[i].id]" language="Python" />
-        <watch expression="timestamp_2+a.drop_time_list[j]+distance_dictionary[a.route_list[j].id+'_'+customer_in_calculating[i].id]" language="Python" />
-        <watch expression="timestamp_2 + distance_dictionary['airport' + '_' + customer_in_calculating[i].id]&gt;customer_in_calculating[i].on_time+time_window" language="Python" />
-        <watch expression="customer_in_calculating[2].on_time-distance_dictionary['airport'+'_'+customer_in_calculating[2].id]" language="Python" />
-        <watch expression="whole_route[2][flag][k]" language="Python" />
-        <watch expression="flag" language="Python" />
-        <watch expression="timestamp_2 + distance_dictionary['airport' + '_' + customer_in_calculating[i].id]" language="Python" />
-        <watch expression="whole_route[1]!=None " language="Python" />
-        <watch expression="customer_in_calculating[i].on_time-distance_dictionary['airport'+'_'+customer_in_calculating[i].id]-timestamp_2" language="Python" />
-        <watch expression="complete_route.start_time+complete_route.drop_time_list[-1]" language="Python" />
-        <watch expression="whole_route[4][x].start_time + whole_route[4][x].drop_time_list[-1]" language="Python" />
-        <watch expression="whole_route[4][x].start_time+whole_route[4][x].drop_time_list[0]" language="Python" />
-        <watch expression="customer_in_calculating[i].on_time - distance_dictionary[                 'airport' + '_' + customer_in_calculating[i].id] - timestamp_2" language="Python" />
-        <watch expression="customer_in_calculating[i].on_time-distance_dictionary['airport'+'_'+customer_in_calculating[i].id]" language="Python" />
-        <watch expression="complete_route.start_time+complete_route.drop_time_list[-1]" language="Python" />
-        <watch expression="whole_route[4][x].start_time+whole_route[4][x].drop_time_list[-1]" language="Python" />
-        <watch expression="expected_pick_time" language="Python" />
-        <watch expression="len(whole_route[4][x].drop_time_list)" />
-        <watch expression="whole_route[4][x].start_time" />
-        <watch expression="whole_route[4][x].start_time+whole_route[4][x].drop_time_list[-1]" />
+        <watch expression="customer_in_calculating[i].on_time-distance_dictionary['airport'+'_'+customer_in_calculating[i].id]" />
+        <watch expression="complete_route.start_time+complete_route.drop_time_list[-1]" />
+        <watch expression="whole_route[4][7].start_time+whole_route[4][7].drop_time_list[-2]" language="Python" />
         <watch expression="whole_route[4][x].start_time+whole_route[4][x].drop_time_list[0]" />
+        <watch expression="customer_in_calculating[i].on_time - distance_dictionary['airport' + '_' + customer_in_calculating[i].id] - timestamp_2" language="Python" />
+        <watch expression="expected_pick_time" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>expected_pick_time</expression-string>
+        <expression-string>whole_route[4][7].start_time+whole_route[4][7].drop_time_list[-2]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>whole_route[4][x].start_time+whole_route[4][x].drop_time_list[-1]</expression-string>
+        <expression-string>whole_route[4][13].start_time+whole_route[4][13].drop_time_list[-2]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>complete_route.start_time+complete_route.drop_time_list[-1]</expression-string>
+        <expression-string>whole_route[4][12].start_time+whole_route[4][12].drop_time_list[-2]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>customer_in_calculating[i].on_time-distance_dictionary['airport'+'_'+customer_in_calculating[i].id]</expression-string>
+        <expression-string>whole_route[4][11].start_time+whole_route[4][11].drop_time_list[-2]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>customer_in_calculating[i].on_time-distance_dictionary['airport'+'_'+customer_in_calculating[i].id]&gt;timestamp_2</expression-string>
+        <expression-string>whole_route[4][10].start_time+whole_route[4][10].drop_time_list[-2]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>customer_in_calculating[i].on_time - distance_dictionary[                 'airport' + '_' + customer_in_calculating[i].id] - timestamp_2</expression-string>
+        <expression-string>whole_route[4][9].start_time+whole_route[4][9].drop_time_list[-2]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>whole_route[4][x].start_time+whole_route[4][x].drop_time_list[0]</expression-string>
+        <expression-string>whole_route[4][8].start_time+whole_route[4][8].drop_time_list[-2]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>whole_route[4][x].start_time + whole_route[4][x].drop_time_list[-1]</expression-string>
+        <expression-string>plot_a_simple_map(new_insert,'1')</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>whole_route[4][x].start_time + whole_route[4][x].drop_time_list[-1] &gt; customer_in_calculating[i].on_time</expression-string>
+        <expression-string>plot_a_simple_map(new_insert,'0')</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>customer_in_calculating[i].on_time-distance_dictionary['airport'+'_'+customer_in_calculating[i].id]-timestamp_2</expression-string>
+        <expression-string>plot_a_simple_map(whole_route[4][5],'0')</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>__py_debug_temp_var_1120220491</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>__py_debug_temp_var_1559904242</expression-string>
         <language-id>Python</language-id>
@@ -815,13 +767,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/read_file_py.py">
+    <entry file="file://$PROJECT_DIR$/ll.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="54" column="94" selection-start-line="54" selection-start-column="94" selection-end-line="54" selection-end-column="94" />
-          <folding>
-            <element signature="e#23#41#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -832,16 +781,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ll.py">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_umd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        <state relative-caret-position="95">
+          <caret line="197" selection-start-line="197" selection-end-line="197" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/someclass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-650">
+        <state relative-caret-position="105">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
@@ -849,17 +798,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_umd.py">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="197" selection-start-line="197" selection-end-line="197" />
+        <state relative-caret-position="332">
+          <caret line="1734" selection-start-line="1734" selection-end-line="1734" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/read_file_py.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
+          <folding>
+            <element signature="e#23#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/VNS_both_final_dynamic_api_v6.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2722">
-          <caret line="785" column="53" selection-start-line="785" selection-start-column="53" selection-end-line="785" selection-end-column="53" />
+        <state relative-caret-position="-45">
+          <caret line="1031" column="83" selection-start-line="1031" selection-start-column="83" selection-end-line="1031" selection-end-column="83" />
           <folding>
             <element signature="e#378#389#0" expanded="true" />
           </folding>
