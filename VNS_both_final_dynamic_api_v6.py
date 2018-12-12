@@ -35,7 +35,7 @@ import copy
 from matplotlib import pylab
 import matplotlib.transforms as mtransforms
 
-import urllib2
+# import urllib2
 import json
 import logging
 
@@ -62,24 +62,38 @@ time_point_out_1 = "2015-08-03 16:00:00"
 time_point_out_2 = "2015-08-03 16:30:00"
 
 
-def getUrl_multiTry( url ):
-    # user_agent ='"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 Safari/537.36"'
-    user_agent = '"Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0"'
-    headers = {'User-Agent': user_agent}
-    maxTryNum = 10
-    for tries in range( maxTryNum ):
-        try:
-            req = urllib2.Request( url, headers = headers )
-            html = urllib2.urlopen( req ).read()
-            break
-        except:
-            if tries < (maxTryNum - 1):
-                continue
-            else:
-                logging.error( "Has tried %d times to access url %s, all failed!", maxTryNum, url )
-                break
+# def getUrl_multiTry( url ):
+#     # user_agent ='"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 Safari/537.36"'
+#     user_agent = '"Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0"'
+#     headers = {'User-Agent': user_agent}
+#     maxTryNum = 10
+#     for tries in range( maxTryNum ):
+#         try:
+#             req = urllib2.Request( url, headers = headers )
+#             html = urllib2.urlopen( req ).read()
+#             break
+#         except:
+#             if tries < (maxTryNum - 1):
+#                 continue
+#             else:
+#                 logging.error( "Has tried %d times to access url %s, all failed!", maxTryNum, url )
+#                 break
+#
+#     return html
 
-    return html
+
+def check_pick_time(a):
+    # airport=someclass.Demand('airport',np.array([113.814, 22.623]),None,None,None)
+    can_insert = 1
+    for i in range(len(a.route_list)):
+        if a.route_list[i].service_type==False:
+            if a.start_time+a.drop_time_list[i]>a.route_list[i].on_time:
+                can_insert=0
+                break
+    return can_insert
+
+
+
 
 def check2distance(a, distance_dictionary):
     airport=someclass.Demand('airport',np.array([113.814, 22.623]),None,None,None)
@@ -205,9 +219,10 @@ def plot_a_simple_map( ready_route, filename ):
 
 
 
-def inner_change(route,distance_dictionary):
+def inner_change(route,distance_dictionary,timestamp_2):
     opt_index = [0, 0, 0, 0]
-    route_tmp = someclass.Route(None,[],[],None,None)
+    route.start_time=timestamp_2
+    route_tmp = someclass.Route(None,[],[],None,timestamp_2)
     new_route = route
     t_max=route.drop_time_list[-1]
 
@@ -248,13 +263,19 @@ def inner_change(route,distance_dictionary):
 
                     can_insert, time_list, distance_dictionary = check2distance( route_tmp, distance_dictionary )
 
-                    if can_insert == 1:
-                        t_value = time_list[-1]
 
-                        if t_value < t_max:
-                            # current_travel_cost = t_value
-                            opt_index = [i, j, m, n]
-                            t_max=t_value
+
+                    if can_insert == 1 :
+                        route_tmp.drop_time_list = time_list
+                        can = check_pick_time( route_tmp )
+                        if can==1:
+                            t_value = time_list[-1]
+
+                            if t_value < t_max:
+                                # current_travel_cost = t_value
+                                opt_index = [i, j, m, n]
+                                t_max=t_value
+
 
     if opt_index[0]!=0 or opt_index[1]!=0 or opt_index[2]!=0 or opt_index[3]!=0:
 
@@ -297,18 +318,22 @@ def inner_change(route,distance_dictionary):
                     new_route.route_list = route.route_list[m:n] + route.route_list[i:j]
 
         can_insert, time_list, distance_dictionary = check2distance( new_route, distance_dictionary )
+
         if time_list[-1]==t_max:
             new_route.drop_time_list=time_list
+            new_route.start_time=timestamp_2
 
     return new_route, distance_dictionary
 
-def inter_change(route1, route2,distance_dictionary):
+def inter_change(route1, route2,distance_dictionary, timestamp_2):
     opt_index = [0, 0, 0, 0]
+    route1.start_time=timestamp_2
+    route2.start_time=timestamp_2
 
-    new_route_tmp_1 = someclass.Route(None,[],[],None,None)
-    new_route_tmp_2 = someclass.Route(None,[],[],None,None)
-    new_route_1 = someclass.Route(None,[],[],None,None)
-    new_route_2 = someclass.Route(None,[],[],None,None)
+    new_route_tmp_1 = someclass.Route(None,[],[],None,timestamp_2)
+    new_route_tmp_2 = someclass.Route(None,[],[],None,timestamp_2)
+    new_route_1 = someclass.Route(None,[],[],None,timestamp_2)
+    new_route_2 = someclass.Route(None,[],[],None,timestamp_2)
     t_max1=route1.drop_time_list[-1]
     t_max2=route2.drop_time_list[-1]
 
@@ -411,64 +436,85 @@ def inter_change(route1, route2,distance_dictionary):
                                 can_insert2, time_list2, distance_dictionary = check2distance( new_route_tmp_2, distance_dictionary )
                                 exceed2, distance_dictionary=check_capacity(new_route_tmp_2,distance_dictionary)
 
-                                if can_insert2==1 and exceed2==0:
-                                    t_value_1 = 0
-                                    t_value_2=time_list2[-1]
-                                    if (t_value_1 + t_value_2) < (t_max1 + t_max2):
-                                        # travel_cost_1 = t_value_1
-                                        # travel_cost_2 = t_value_2
-                                        opt_index = [i, j, m, n]
-                                        t_max1 = t_value_1
-                                        t_max2 = t_value_2
+
+                                if can_insert2==1 and exceed2==0 :
+                                    new_route_tmp_2.drop_time_list = time_list2
+                                    can2 = check_pick_time( new_route_tmp_2 )
+                                    if can2==1:
+                                        t_value_1 = 0
+                                        t_value_2=time_list2[-1]
+                                        if (t_value_1 + t_value_2) < (t_max1 + t_max2):
+                                            # travel_cost_1 = t_value_1
+                                            # travel_cost_2 = t_value_2
+                                            opt_index = [i, j, m, n]
+                                            t_max1 = t_value_1
+                                            t_max2 = t_value_2
                             else:
                                 can_insert1,time_list1, distance_dictionary= check2distance(new_route_tmp_1, distance_dictionary)
                                 exceed1,distance_dictionary=check_capacity(new_route_tmp_1,distance_dictionary)
+
                                 if can_insert1==1 and exceed1==0:
-                                    t_value_1=time_list1[-1]
-                                    t_value_2=0
-                                    if (t_value_1 + t_value_2) < (t_max1 + t_max2):
-                                        # travel_cost_1 = t_value_1
-                                        # travel_cost_2 = t_value_2
-                                        opt_index = [i, j, m, n]
-                                        t_max1 = t_value_1
-                                        t_max2 = t_value_2
+                                    new_route_tmp_1.drop_time_list = time_list1
+                                    can1 = check_pick_time( new_route_tmp_1 )
+                                    if can1==1:
+                                        t_value_1=time_list1[-1]
+                                        t_value_2=0
+                                        if (t_value_1 + t_value_2) < (t_max1 + t_max2):
+                                            # travel_cost_1 = t_value_1
+                                            # travel_cost_2 = t_value_2
+                                            opt_index = [i, j, m, n]
+                                            t_max1 = t_value_1
+                                            t_max2 = t_value_2
                     else:
                         if (len( new_route_tmp_1.route_list ) == 0) or (len( new_route_tmp_2.route_list ) == 0):
                             if len( new_route_tmp_1.route_list ) == 0:
                                 can_insert2, time_list2, distance_dictionary = check2distance( new_route_tmp_2, distance_dictionary )
                                 exceed2,distance_dictionary=check_capacity(new_route_tmp_2,distance_dictionary)
 
+
                                 if can_insert2==1 and exceed2==0:
-                                    A_route_has_been_deleted = True
-                                    t_value_1 = 0
-                                    t_value_2=time_list2[-1]
-                                    opt_index = [i, j, m, n]
-                                    t_max1 = t_value_1
-                                    t_max2 = t_value_2
+                                    new_route_tmp_2.drop_time_list = time_list2
+                                    can2 = check_pick_time( new_route_tmp_2 )
+                                    if can2==1:
+                                        A_route_has_been_deleted = True
+                                        t_value_1 = 0
+                                        t_value_2=time_list2[-1]
+                                        opt_index = [i, j, m, n]
+                                        t_max1 = t_value_1
+                                        t_max2 = t_value_2
                             else:
                                 can_insert1,time_list1, distance_dictionary= check2distance(new_route_tmp_1, distance_dictionary)
                                 exceed1,distance_dictionary=check_capacity(new_route_tmp_1,distance_dictionary)
+
                                 if can_insert1==1 and exceed1==0:
-                                    t_value_1=time_list1[-1]
-                                    # if len(new_route_tmp_2.route_list)==0:
-                                    t_value_2=0
-                                    A_route_has_been_deleted = True
-                                    opt_index = [i, j, m, n]
-                                    t_max1 = t_value_1
-                                    t_max2 = t_value_2
+                                    new_route_tmp_1.drop_time_list = time_list1
+                                    can1 = check_pick_time( new_route_tmp_1 )
+                                    if can1==1:
+                                        t_value_1=time_list1[-1]
+                                        # if len(new_route_tmp_2.route_list)==0:
+                                        t_value_2=0
+                                        A_route_has_been_deleted = True
+                                        opt_index = [i, j, m, n]
+                                        t_max1 = t_value_1
+                                        t_max2 = t_value_2
                         else:
                             can_insert1, time_list1, distance_dictionary = check2distance( new_route_tmp_1,distance_dictionary )
                             exceed1,distance_dictionary=check_capacity(new_route_tmp_1,distance_dictionary)
-                            can_insert2, time_list2, distance_dictionary = check2distance( new_route_tmp_2, distance_dictionary )
-                            exceed2,distance_dictionary=check_capacity(new_route_tmp_2, distance_dictionary)
-                            if can_insert1==1 and can_insert2==1 and exceed1==0 and exceed2==0:
-                                t_value_1=time_list1[-1]
-                                t_value_2=time_list2[-1]
-                                if t_value_1+t_value_2<t_max1+t_max2:
-                                    t_max1=t_value_1
-                                    t_max2=t_value_2
-                                    A_route_has_been_deleted =True
-                                    opt_index=[i,j,m,n]
+                            can_insert2, time_list2, distance_dictionary = check2distance( new_route_tmp_2,distance_dictionary )
+                            exceed2, distance_dictionary = check_capacity( new_route_tmp_2, distance_dictionary )
+                            if can_insert1 == 1 and can_insert2 == 1 and exceed1 == 0 and exceed2 == 0:
+                                new_route_tmp_1.drop_time_list=time_list1
+                                can1=check_pick_time(new_route_tmp_1)
+                                new_route_tmp_2.drop_time_list=time_list2
+                                can2=check_pick_time(new_route_tmp_2)
+                                if can1==1 and can2==1:
+                                    t_value_1=time_list1[-1]
+                                    t_value_2=time_list2[-1]
+                                    if t_value_1+t_value_2<t_max1+t_max2:
+                                        t_max1=t_value_1
+                                        t_max2=t_value_2
+                                        A_route_has_been_deleted =True
+                                        opt_index=[i,j,m,n]
 
 
 
@@ -561,11 +607,13 @@ def inter_change(route1, route2,distance_dictionary):
         if len(new_route_1.route_list)!=0:
             can_insert1, time_list1, distance_dictionary = check2distance( new_route_1, distance_dictionary )
             new_route_1.drop_time_list = time_list1
+            new_route_1.start_time =timestamp_2
         else:
             new_route_1.drop_time_list=[]
         if len(new_route_2.route_list)!=0:
             can_insert2, time_list2, distance_dictionary = check2distance( new_route_2, distance_dictionary )
             new_route_2.drop_time_list = time_list2
+            new_route_2.start_time = timestamp_2
         else:
             new_route_2.drop_time_list=[]
 
@@ -586,9 +634,8 @@ def calculate_cutomer_out( timestamp_2, customer_out_calculating, whole_route, d
     for i in range(0, len(customer_out_calculating)):  # 表示现有需要计算的订单
         if timestamp_2<customer_out_calculating[i].on_time<timestamp_2+time_window:#如果该订单的出发时间在接下来的一个时间段，
             # 则该订单被考虑，否则只是记录一下
-            flag2=0
-            distance_test = float( "inf" )
-            available_positions=[]
+            #出机场的订单不可能和已出发的线路进行匹配，只能从未出发或者没有匹配位置就重开一条线路
+
             # if (len( whole_route ) == 0) or 0 not in whole_route.keys():
             if 0 not in whole_route.keys() or whole_route[0]==None or len(whole_route[0])==0:
                 # key = 'airport' + '_' + customer_out_calculating[i].id
@@ -611,73 +658,119 @@ def calculate_cutomer_out( timestamp_2, customer_out_calculating, whole_route, d
                 # customer_out_calculated_route_id = customer_out_calculated_route_id + 1
                 # customer_out_calculated.append( customer_out_calculated_route_id, route )
             else:
-                for a in whole_route[0]:  # 不同的线路
-                    exceed, distance_dictionary=check_capacity(a,distance_dictionary)
+                distance_test = float( "inf" )
+                available_positions = []
+                for a in range(len(whole_route[0])):  # 不同的线路
+                    exceed, distance_dictionary=check_capacity(whole_route[0][a],distance_dictionary)
                     if exceed==0:
-                        for j in range( 0, len( a.route_list ) + 1 ):
-                            if j == 0:
-                                if 'airport' + '_' + customer_out_calculating[i].id not in distance_dictionary.keys():
-                                    distance_dictionary = customer_out_calculating[i].update_distance_dictionary( airport,
-                                                                                              distance_dictionary )
-                                if customer_out_calculating[i].id + '_' + a.route_list[0].id not in distance_dictionary.keys():
-                                    distance_dictionary=customer_out_calculating[i].update_distance_dictionary(a.route_list[0],distance_dictionary)
-                                if 'airport' + '_' + a.route_list[0].id not in distance_dictionary.keys():
-                                    distance_dictionary = airport.update_distance_dictionary(a.route_list[0],distance_dictionary)
-
-                                distance_increase = distance_dictionary['airport' + '_' + customer_out_calculating[i].id] + \
-                                                    distance_dictionary[customer_out_calculating[i].id + '_' + a.route_list[0].id] - \
-                                                    distance_dictionary['airport' + '_' + a.route_list[0].id]
-                            if j == len( a.route_list ):
-                                if a.route_list[-1].id + '_' + customer_out_calculating[i].id not in distance_dictionary.keys():
-                                    distance_dictionary = a.route_list[-1].update_distance_dictionary(
-                                        customer_out_calculating[i], distance_dictionary )
-                                if customer_out_calculating[i].id + '_' + 'airport' not in distance_dictionary.keys():
-                                    distance_dictionary = customer_out_calculating[i].update_distance_dictionary( airport,
-                                                                                                                  distance_dictionary )
-                                if a.route_list[-1].id + '_' + 'airport' not in distance_dictionary.keys():
-                                    distance_dictionary = a.route_list[-1].update_distance_dictionary( airport,
-                                                                                                       distance_dictionary )
-                                distance_increase = distance_dictionary[
-                                                        a.route_list[-1].id + '_' + customer_out_calculating[i].id] + \
-                                                    distance_dictionary[
-                                                        customer_out_calculating[i].id + '_' + 'airport'] - distance_dictionary[
-                                                        a.route_list[-1].id + '_' + 'airport']
-                            if (j != 0) and (j != len( a.route_list )):
-                                if a.route_list[j - 1].id + '_' + customer_out_calculating[i].id not in distance_dictionary.keys():
-                                    distance_dictionary= a.route_list[j-1].update_distance_dictionary(customer_out_calculating[i],distance_dictionary)
-                                if customer_out_calculating[i].id + '_' + a.route_list[j].id not in distance_dictionary.keys():
-                                    distance_dictionary=customer_out_calculating[i].update_distance_dictionary(a.route_list[j],distance_dictionary)
-                                if a.route_list[j - 1].id + '_' + a.route_list[j].id not in distance_dictionary.keys():
-                                    distance_dictionary=a.route_list[j-1].update_distance_dictionary(a.route_list[j],distance_dictionary)
-
+                        for j in range( 0, len( whole_route[0][a].route_list ) + 1 ):
+                            new_insert=whole_route[0][a]
+                            new_insert.route_list.insert(j,customer_out_calculating[i])
+                            exceed_capacity, distance_dictionary = check_capacity( new_insert,
+                                                                                   distance_dictionary )
+                            can_insert, time_list, distance_dictionary = check2distance( new_insert,
+                                                                                         distance_dictionary )
+                            whole_route[0][a].route_list.remove(customer_out_calculating[i])
+                            if exceed_capacity==0 and can_insert==1:
+                                if j == 0:
+                                    if 'airport' + '_' + customer_out_calculating[
+                                        i].id not in distance_dictionary.keys():
+                                        distance_dictionary = airport.update_distance_dictionary(
+                                            customer_out_calculating[i] )
+                                    if customer_out_calculating[i].id + '_' + whole_route[0][a].route_list[
+                                        0].id not in distance_dictionary.keys():
+                                        distance_dictionary = customer_out_calculating[
+                                            i].update_distance_dictionary( whole_route[0][a].route_list[0],
+                                                                           distance_dictionary )
+                                    if 'airport' + '_' + whole_route[0][a].route_list[
+                                        0].id not in distance_dictionary.keys():
+                                        distance_dictionary = airport.update_distance_dictionary(
+                                            whole_route[0][a].route_list[0] )
                                     distance_increase = distance_dictionary[
-                                                        a.route_list[j - 1].id + '_' + customer_out_calculating[
-                                                            i].id] + distance_dictionary[
-                                                        customer_out_calculating[i].id + '_' + a.route_list[j].id] - \
-                                                    distance_dictionary[
-                                                        a.route_list[j - 1].id + '_' + a.route_list[j].id]
+                                                            'airport' + '_' + customer_out_calculating[
+                                                                i].id] + \
+                                                        distance_dictionary[
+                                                            customer_out_calculating[i].id + '_' +
+                                                            whole_route[0][a].route_list[0].id] - \
+                                                        distance_dictionary[
+                                                            'airport' + '_' + whole_route[0][a].route_list[
+                                                                0].id]
+                                elif j == len( whole_route[0][a].route_list ):
+                                    if whole_route[0][a].route_list[-1].id + '_' + customer_out_calculating[
+                                        i].id not in distance_dictionary.keys():
+                                        distance_dictionary = whole_route[0][a].update_distance_dictionary(
+                                            customer_out_calculating[i], distance_dictionary )
+                                    if customer_out_calculating[
+                                        i].id + '_' + 'airport' not in distance_dictionary.keys():
+                                        distance_dictionary = customer_out_calculating[
+                                            i].update_distance_dictionary( airport, distance_dictionary )
+                                    if whole_route[0][a].route_list[
+                                        -1].id + '_' + 'airport' not in distance_dictionary.keys():
+                                        distance_dictionary = whole_route[0][a].route_list[
+                                            -1].update_distance_dictionary( airport, distance_dictionary )
+                                    distance_increase = distance_dictionary[
+                                                            whole_route[0][a].route_list[-1].id + '_' +
+                                                            customer_out_calculating[i].id] + \
+                                                        distance_dictionary[
+                                                            customer_out_calculating[
+                                                                i].id + '_' + 'airport'] - \
+                                                        distance_dictionary[
+                                                            whole_route[0][a].route_list[
+                                                                -1].id + '_' + 'airport']
+                                else:
+                                    if whole_route[0][a].route_list[j - 1].id + '_' + \
+                                            customer_out_calculating[i].id not in distance_dictionary.keys():
+                                        distance_dictionary = whole_route[0][a].route_list[
+                                            j - 1].update_distance_dictionary( customer_out_calculating[i],
+                                                                               distance_dictionary )
+                                    if customer_out_calculating[i].id + '_' + whole_route[0][a].route_list[
+                                        j].id not in distance_dictionary.keys():
+                                        distance_dictionary = customer_out_calculating[
+                                            i].update_distance_dictionary( whole_route[0][a].route_list[j],
+                                                                           distance_dictionary )
+                                    if whole_route[0][a].route_list[j - 1].id + '_' + \
+                                            whole_route[0][a].route_list[
+                                                j].id not in distance_dictionary.keys():
+                                        distance_dictionary = whole_route[0][a].route_list[
+                                            j - 1].update_distance_dictionary(
+                                            whole_route[0][a].route_list[j], distance_dictionary )
+                                    distance_increase = distance_dictionary[
+                                                            whole_route[0][a].route_list[j - 1].id + '_' +
+                                                            customer_out_calculating[i].id] + \
+                                                        distance_dictionary[
+                                                            customer_out_calculating[i].id + '_' +
+                                                            whole_route[0][a].route_list[j].id] - \
+                                                        distance_dictionary[
+                                                            whole_route[0][a].route_list[j - 1].id + '_'
+                                                            + whole_route[0][a].route_list[
+                                                                j].id]
 
+                                if distance_increase < distance_test:
+                                    available_positions.append( [distance_increase, j, a] )
+                                    distance_test = distance_increase
 
+                if len( available_positions ) != 0:
+                    whole_route[0][available_positions[-1][2]].route_list.insert(available_positions[-1][1], customer_out_calculating[i] )
+                    can_insert, time_list, distance_dictionary = check2distance(
+                        whole_route[0][available_positions[-1][2]], distance_dictionary )
+                    whole_route[0][available_positions[-1][2]].drop_time_list = time_list
+                    find_position = 1
+                    # plot_a_simple_map( whole_route[1][available_positions[-1][2]],
+                    #                    str( whole_route[1][available_positions[-1][2]].route_id ) )
+                else:
+                    #所有的位置都不行
+                        # 重新分配一辆车
+                        # a.route_list.pop(insert_position)
+                        # customer_out_cannot_service.append(customer_out_calculating[i])
+                        # whole_route[0][insert_route_index].route_list.remove(customer_out_calculating[i])
 
-                            if distance_increase < distance_test:
-                                distance_test = distance_increase
-                                insert_position = j
-                                # insert_route = a
-                                # insert_route_index = whole_route[0].index( insert_route )
-                                insert_route_index = whole_route[0].index( a )
-                                position_tmp=someclass.Position(distance_test,insert_position,insert_route_index)
-                                available_positions.append(position_tmp)
-                    else:
-                        flag2=flag2+1
-                if flag2==len(whole_route[0]):#所有的线路都超过10个人
                     route_list_tmp = []
                     route_list_tmp.append(customer_out_calculating[i])
                     time_list = []
                     if 'airport' + '_' + customer_out_calculating[i].id not in distance_dictionary.keys():
-                        distance_dictionary = customer_out_calculating[i].update_distance_dictionary(airport,
-                                                                                                     distance_dictionary)
+                        distance_dictionary = airport.update_distance_dictionary(customer_out_calculating[i],
+                                                                                 distance_dictionary)
 
-                    # distance_dictionary['airport' + '_' + customer_out_calculating[0].id]
                     expected_drop_time0 = distance_dictionary['airport' + '_' + customer_out_calculating[i].id]
                     time_list.append(expected_drop_time0)
                     expected_drop_time0 = expected_drop_time0 + distance_dictionary[
@@ -685,49 +778,8 @@ def calculate_cutomer_out( timestamp_2, customer_out_calculating, whole_route, d
                     time_list.append(expected_drop_time0)
 
                     route_tmp = someclass.Route(None, route_list_tmp, time_list,None,None)
-                    # route_tmp0 = []
-                    # route_tmp0.append(route_tmp)
+                    # customer_out_calculated_route_id = customer_out_calculated_route_id + 1
                     whole_route[0].append(route_tmp)
-                else:
-                    # insert_route.route_list.insert(insert_position, customer_out_calculating[i])
-                    flag3=1
-                    for p in range(len(available_positions)-1,-1,-1):
-                        insert_route_index=available_positions[p].insert_route_index
-                        insert_position=available_positions[p].insert_position
-                        whole_route[0][insert_route_index].route_list.insert(insert_position, customer_out_calculating[i])
-                        # customer_out_calculated[a].insert( j, customer_out_calculating[i] )
-                        # can_insert, time_list, distance_dictionary= check2distance(insert_route, distance_dictionary)
-                        can_insert, time_list, distance_dictionary= check2distance(whole_route[0][insert_route_index], distance_dictionary)
-                        exceed_p,distance_dictionary=check_capacity(whole_route[0][insert_route_index], distance_dictionary)
-
-                        if can_insert==1 and exceed_p==0:
-                            whole_route[0][insert_route_index].drop_time_list = time_list
-                            flag3=0
-                            break
-                        else:
-                            whole_route[0][insert_route_index].route_list.remove(customer_out_calculating[i])
-                    if p==0 and flag3!=0:#所有的位置都不行
-                        # 重新分配一辆车
-                        # a.route_list.pop(insert_position)
-                        # customer_out_cannot_service.append(customer_out_calculating[i])
-                        # whole_route[0][insert_route_index].route_list.remove(customer_out_calculating[i])
-
-                        route_list_tmp = []
-                        route_list_tmp.append(customer_out_calculating[i])
-                        time_list = []
-                        if 'airport' + '_' + customer_out_calculating[i].id not in distance_dictionary.keys():
-                            distance_dictionary = airport.update_distance_dictionary(customer_out_calculating[i],
-                                                                                     distance_dictionary)
-
-                        expected_drop_time0 = distance_dictionary['airport' + '_' + customer_out_calculating[i].id]
-                        time_list.append(expected_drop_time0)
-                        expected_drop_time0 = expected_drop_time0 + distance_dictionary[
-                            customer_out_calculating[i].id + '_' + 'airport']
-                        time_list.append(expected_drop_time0)
-
-                        route_tmp = someclass.Route(None, route_list_tmp, time_list,None,None)
-                        # customer_out_calculated_route_id = customer_out_calculated_route_id + 1
-                        whole_route[0].append(route_tmp)
 
                         # if can_insert == 0:
 
@@ -756,152 +808,63 @@ def calculate_cutomer_out( timestamp_2, customer_out_calculating, whole_route, d
     return whole_route, customer_out_uncomplete,distance_dictionary
 
 
-def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictionary,timestamp_2):
+def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictionary,timestamp_2,tip):
+    #tip=0意味着处理之前累积的订单，tip=1意味着处理这个时间区间新来的订单
+
     airport=someclass.Demand('airport',np.array([113.814, 22.623]),None,None,None)
     customer_in_uncomplete=[]
+    whole_route40to41=[]
+    whole_route41to41=[]
+    whole_route40t042=[]
+    whole_route42to41=[]
     time_window=5*60
     for i in range( 0, len( customer_in_calculating ) ):  # 表示现有需要计算的订单
         find_position = 0
         #if timestamp_2<customer_in_calculating[i].on_time<timestamp_2+time_window:
-
-            #先和在路上的线路匹配whole_route[4]
-        if 4 in whole_route.keys():
-            if whole_route[4]!=None:
-                if len(whole_route[4])!=0:
-                    available_positions=[]
-                    distance_test = float( "inf" )
-                    for x in range(len(whole_route[4])):
-                        if whole_route[4][x].start_time+whole_route[4][x].drop_time_list[-1]>customer_in_calculating[i].on_time \
-                                and timestamp_2 < whole_route[4][x].start_time + whole_route[4][x].drop_time_list[-1]:
-                        # if timestamp_2 < whole_route[4][x].start_time + whole_route[4][x].drop_time_list[-1]:
-                            #对每一条线路check车运行到哪
-                            began=float("inf")
-                            if whole_route[4][x].start_time<timestamp_2<whole_route[4][x].start_time+whole_route[4][x].drop_time_list[0]:
-                                began=0
-                            elif whole_route[4][x].start_time+whole_route[4][x].drop_time_list[-2]<timestamp_2<\
-                                    whole_route[4][x].start_time+whole_route[4][x].drop_time_list[-1]:
-                                began=len(whole_route[4][x].route_list)
-                            else:
-                                for y in range( len( whole_route[4][x].route_list ) - 1 ):
-                                    if whole_route[4][x].start_time+whole_route[4][x].drop_time_list[y] < timestamp_2 < \
-                                            whole_route[4][x].start_time+whole_route[4][x].drop_time_list[y + 1]:
-                                        began = y + 1
-                                        # break
-                            if began==float("inf"):
-                                pass
-                            for z in range(began, len(whole_route[4][x].drop_time_list)):
-                                new_insert=whole_route[4][x]
-                                new_insert.route_list.insert(z,customer_in_calculating[i])
-                                exceed_capacity, distance_dictionary=check_capacity(new_insert, distance_dictionary)
-                                can_insert, time_list, distance_dictionary=check2distance(new_insert, distance_dictionary)
-                                whole_route[4][x].route_list.remove(customer_in_calculating[i])
-                                if exceed_capacity==0 and can_insert==1:
-                                    if z == 0:
-                                        if 'airport' + '_' + customer_in_calculating[i].id not in distance_dictionary.keys():
-                                            distance_dictionary=airport.update_distance_dictionary(customer_in_calculating[i],distance_dictionary)
-                                        if customer_in_calculating[i].id + '_' +whole_route[4][x].route_list[0].id not in distance_dictionary.keys():
-                                            distance_dictionary=customer_in_calculating[i].update_distance_dictionary(whole_route[4][x].route_list[0])
-                                        if 'airport' + '_' + whole_route[4][x].route_list[0].id not in distance_dictionary.keys():
-                                            distance_dictionary=airport.update_distance_dictionary(whole_route[4][x].route_list[0])
-                                        expected_pick_time=whole_route[4][x].start_time+distance_dictionary['airport' + '_' + customer_in_calculating[i].id]
-                                        distance_increase = distance_dictionary[
-                                                                'airport' + '_' + customer_in_calculating[i].id] + \
-                                                            distance_dictionary[customer_in_calculating[i].id + '_' +
-                                                                                whole_route[4][x].route_list[0].id] - \
-                                                            distance_dictionary[
-                                                                'airport' + '_' + whole_route[4][x].route_list[0].id]
-                                    elif z == len( whole_route[4][x].route_list ):
-                                        if whole_route[4][x].route_list[-1].id + '_' +customer_in_calculating[i].id not in distance_dictionary.keys():
-                                            distance_dictionary=whole_route[4][x].route_list[-1].update_distance_dictionary(customer_in_calculating[i],distance_dictionary)
-                                        if  customer_in_calculating[i].id + '_' + 'airport' not in distance_dictionary.keys():
-                                            distance_dictionary=customer_in_calculating[i].update_distance_dictionary(airport,distance_dictionary)
-                                        if whole_route[4][x].route_list[-1].id + '_' + 'airport' not in distance_dictionary.keys():
-                                            distance_dictionary=whole_route[4][x].route_list[-1].update_distance_dictionary(airport,distance_dictionary)
-                                        expected_pick_time=whole_route[4][x].start_time+whole_route[4][x].drop_time_list[-2]+distance_dictionary[
-                                            whole_route[4][x].route_list[-1].id + '_' +customer_in_calculating[i].id]
-                                        distance_increase = distance_dictionary[
-                                                                whole_route[4][x].route_list[-1].id + '_' +
-                                                                customer_in_calculating[i].id] + distance_dictionary[
-                                                                customer_in_calculating[i].id + '_' + 'airport'] - \
-                                                            distance_dictionary[
-                                                                whole_route[4][x].route_list[-1].id + '_' + 'airport']
-                                    else:
-                                        if whole_route[4][x].route_list[z-1].id+'_'+customer_in_calculating[i].id not in distance_dictionary.keys():
-                                            distance_dictionary=whole_route[4][x].route_list[z-1].update_distance_dictionary(customer_in_calculating[i],distance_dictionary)
-                                        if customer_in_calculating[i].id + '_' +whole_route[4][x].route_list[z].id not in distance_dictionary.keys():
-                                            distance_dictionary=customer_in_calculating[i].update_distance_dictionary(whole_route[4][x].route_list[z],distance_dictionary)
-                                        if whole_route[4][x].route_list[z-1].id + '_' + whole_route[4][x].route_list[z].id not in distance_dictionary.keys():
-                                            distance_dictionary=whole_route[4][x].route_list[z-1].update_distance_dictionary(whole_route[4][x].route_list[z],distance_dictionary)
-
-                                        expected_pick_time=whole_route[4][x].start_time+whole_route[4][x].drop_time_list[z-1]+distance_dictionary[
-                                            whole_route[4][x].route_list[z-1].id+'_'+customer_in_calculating[i].id]
-                                        distance_increase = distance_dictionary[
-                                                                whole_route[4][x].route_list[z-1].id + '_' +
-                                                                customer_in_calculating[i].id] + distance_dictionary[
-                                                                customer_in_calculating[i].id + '_' +
-                                                                whole_route[4][x].route_list[z].id] - \
-                                                            distance_dictionary[whole_route[4][x].route_list[z-1].id + '_'
-                                                                                + whole_route[4][x].route_list[
-                                                                                    z].id]
-
-                                    if expected_pick_time<customer_in_calculating[i].on_time and distance_increase<distance_test:
-                                        available_positions.append([distance_increase,z,x])
-                                        # whole_route[4][x].route_list.remove(customer_in_calculating[i])
-                                        distance_test=distance_increase
-
-                    if len(available_positions)!=0:
-                        whole_route[4][available_positions[-1][2]].route_list.insert(available_positions[-1][1],customer_in_calculating[i])
-                        can_insert, time_list, distance_dictionary = check2distance( whole_route[4][available_positions[-1][2]], distance_dictionary )
-                        whole_route[4][available_positions[-1][2]].drop_time_list=time_list
-                        find_position=1
-                        print(customer_in_calculating[i].id+" can find position in current running route "+str(whole_route[4][available_positions[-1][2]].route_id)+
-                              ', including customers: ')
-                        for c in whole_route[4][available_positions[-1][2]].route_list:
-                            print(c.id+', '),
-                        print('/n')
-                        plot_a_simple_map(whole_route[4][available_positions[-1][2]],str(whole_route[4][available_positions[-1][2]].route_id))
-                    else:
-                        print(customer_in_calculating[i].id+" cannot find position in current running routes")
-
-        else:
-            print("no running vehicles!")
-
-
-        if find_position==0:
-        #已出发的线路没找到，到未出发的线路里找
+        if find_position == 0:
+            # 到未出发的线路里找
 
             if 'airport' + '_' + customer_in_calculating[i].id not in distance_dictionary.keys():
                 distance_dictionary = customer_in_calculating[i].update_distance_dictionary( airport,
                                                                                              distance_dictionary )
-            if customer_in_calculating[i].on_time-distance_dictionary['airport'+'_'+customer_in_calculating[i].id]>timestamp_2:
+            if customer_in_calculating[i].on_time - distance_dictionary[
+                'airport' + '_' + customer_in_calculating[i].id] > timestamp_2:
 
                 distance_test = float( "inf" )
-                available_positions=[]
+                available_positions = []
                 if 1 in whole_route.keys():
-                    if whole_route[1]!=None:
-                        if len(whole_route[1])!=0:
-                            for a in range(len(whole_route[1])):#看能否和马上出发的线路配
-                                if customer_in_calculating[i].on_time < timestamp_2+whole_route[1][a].drop_time_list[-1]:
-                                    #该乘客希望上车时间在该线路回到机场时间之内
+                    if whole_route[1] != None:
+                        if len( whole_route[1] ) != 0:
+                            for a in range( len( whole_route[1] ) ):  # 看能否和马上出发的线路配
+                                if customer_in_calculating[i].on_time < timestamp_2 + whole_route[1][a].drop_time_list[
+                                    -1]:
+                                    # 该乘客希望上车时间在该线路回到机场时间之内
 
-                                    for b in range(0, len( whole_route[1][a].drop_time_list ) ):#b表示每条线路中的不同位置
+                                    for b in range( 0, len( whole_route[1][a].drop_time_list ) ):  # b表示每条线路中的不同位置
                                         new_insert = whole_route[1][a]
-                                        new_insert.route_list.insert( b,customer_in_calculating[i] )
+                                        new_insert.route_list.insert( b, customer_in_calculating[i] )
                                         exceed_capacity, distance_dictionary = check_capacity( new_insert,
                                                                                                distance_dictionary )
                                         can_insert, time_list, distance_dictionary = check2distance( new_insert,
                                                                                                      distance_dictionary )
-                                        whole_route[1][a].route_list.remove(customer_in_calculating[i])
+                                        whole_route[1][a].route_list.remove( customer_in_calculating[i] )
                                         if exceed_capacity == 0 and can_insert == 1:
                                             if b == 0:
-                                                if 'airport' + '_' + customer_in_calculating[i].id not in distance_dictionary.keys():
-                                                    distance_dictionary=airport.update_distance_dictionary(customer_in_calculating[i])
-                                                if customer_in_calculating[i].id + '_' +whole_route[1][a].route_list[0].id not in distance_dictionary.keys():
-                                                    distance_dictionary=customer_in_calculating[i].update_distance_dictionary(whole_route[1][a].route_list[0],distance_dictionary)
-                                                if 'airport' + '_' + whole_route[1][a].route_list[0].id not in distance_dictionary.keys():
-                                                    distance_dictionary=airport.update_distance_dictionary(whole_route[1][a].route_list[0])
+                                                if 'airport' + '_' + customer_in_calculating[
+                                                    i].id not in distance_dictionary.keys():
+                                                    distance_dictionary = airport.update_distance_dictionary(
+                                                        customer_in_calculating[i] )
+                                                if customer_in_calculating[i].id + '_' + whole_route[1][a].route_list[
+                                                    0].id not in distance_dictionary.keys():
+                                                    distance_dictionary = customer_in_calculating[
+                                                        i].update_distance_dictionary( whole_route[1][a].route_list[0],
+                                                                                       distance_dictionary )
+                                                if 'airport' + '_' + whole_route[1][a].route_list[
+                                                    0].id not in distance_dictionary.keys():
+                                                    distance_dictionary = airport.update_distance_dictionary(
+                                                        whole_route[1][a].route_list[0] )
 
-                                                expected_pick_time = timestamp_2+distance_dictionary[
+                                                expected_pick_time = timestamp_2 + distance_dictionary[
                                                     'airport' + '_' + customer_in_calculating[i].id]
                                                 distance_increase = distance_dictionary[
                                                                         'airport' + '_' + customer_in_calculating[
@@ -913,13 +876,20 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
                                                                         'airport' + '_' + whole_route[1][a].route_list[
                                                                             0].id]
                                             elif b == len( whole_route[1][a].route_list ):
-                                                if whole_route[1][a].route_list[-1].id + '_' +customer_in_calculating[i].id not in distance_dictionary.keys():
-                                                    distance_dictionary=whole_route[1][a].update_distance_dictionary(customer_in_calculating[i],distance_dictionary)
-                                                if customer_in_calculating[i].id + '_' + 'airport' not in distance_dictionary.keys():
-                                                    distance_dictionary=customer_in_calculating[i].update_distance_dictionary(airport,distance_dictionary)
-                                                if whole_route[1][a].route_list[-1].id + '_' + 'airport' not in distance_dictionary.keys():
-                                                    distance_dictionary=whole_route[1][a].route_list[-1].update_distance_dictionary(airport,distance_dictionary)
-                                                expected_pick_time = timestamp_2+whole_route[1][a].drop_time_list[-2] + \
+                                                if whole_route[1][a].route_list[-1].id + '_' + customer_in_calculating[
+                                                    i].id not in distance_dictionary.keys():
+                                                    distance_dictionary = whole_route[1][a].route_list[-1].update_distance_dictionary(
+                                                        customer_in_calculating[i], distance_dictionary )
+                                                if customer_in_calculating[
+                                                    i].id + '_' + 'airport' not in distance_dictionary.keys():
+                                                    distance_dictionary = customer_in_calculating[
+                                                        i].update_distance_dictionary( airport, distance_dictionary )
+                                                if whole_route[1][a].route_list[
+                                                    -1].id + '_' + 'airport' not in distance_dictionary.keys():
+                                                    distance_dictionary = whole_route[1][a].route_list[
+                                                        -1].update_distance_dictionary( airport, distance_dictionary )
+                                                expected_pick_time = timestamp_2 + whole_route[1][a].drop_time_list[
+                                                    -2] + \
                                                                      distance_dictionary[
                                                                          whole_route[1][a].route_list[-1].id + '_' +
                                                                          customer_in_calculating[i].id]
@@ -933,14 +903,25 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
                                                                         whole_route[1][a].route_list[
                                                                             -1].id + '_' + 'airport']
                                             else:
-                                                if whole_route[1][a].route_list[b - 1].id + '_' +customer_in_calculating[i].id not in distance_dictionary.keys():
-                                                    distance_dictionary=whole_route[1][a].route_list[b-1].update_distance_dictionary(customer_in_calculating[i],distance_dictionary)
-                                                if customer_in_calculating[i].id + '_' +whole_route[1][a].route_list[b].id not in distance_dictionary.keys():
-                                                    distance_dictionary=customer_in_calculating[i].update_distance_dictionary(whole_route[1][a].route_list[b],distance_dictionary)
-                                                if whole_route[1][a].route_list[b - 1].id + '_'+ whole_route[1][a].route_list[b].id not in distance_dictionary.keys():
-                                                    distance_dictionary=whole_route[1][a].route_list[b-1].update_distance_dictionary(whole_route[1][a].route_list[b],distance_dictionary)
+                                                if whole_route[1][a].route_list[b - 1].id + '_' + \
+                                                        customer_in_calculating[i].id not in distance_dictionary.keys():
+                                                    distance_dictionary = whole_route[1][a].route_list[
+                                                        b - 1].update_distance_dictionary( customer_in_calculating[i],
+                                                                                           distance_dictionary )
+                                                if customer_in_calculating[i].id + '_' + whole_route[1][a].route_list[
+                                                    b].id not in distance_dictionary.keys():
+                                                    distance_dictionary = customer_in_calculating[
+                                                        i].update_distance_dictionary( whole_route[1][a].route_list[b],
+                                                                                       distance_dictionary )
+                                                if whole_route[1][a].route_list[b - 1].id + '_' + \
+                                                        whole_route[1][a].route_list[
+                                                            b].id not in distance_dictionary.keys():
+                                                    distance_dictionary = whole_route[1][a].route_list[
+                                                        b - 1].update_distance_dictionary(
+                                                        whole_route[1][a].route_list[b], distance_dictionary )
 
-                                                expected_pick_time = timestamp_2+whole_route[1][a].drop_time_list[b - 1] + \
+                                                expected_pick_time = timestamp_2 + whole_route[1][a].drop_time_list[
+                                                    b - 1] + \
                                                                      distance_dictionary[
                                                                          whole_route[1][a].route_list[b - 1].id + '_' +
                                                                          customer_in_calculating[i].id]
@@ -967,23 +948,149 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
                                     whole_route[1][available_positions[-1][2]], distance_dictionary )
                                 whole_route[1][available_positions[-1][2]].drop_time_list = time_list
                                 find_position = 1
-                                print(customer_in_calculating[i].id + " can find position in current running route " + str(
-                                    whole_route[1][available_positions[-1][2]].route_id ) +
-                                      ', including customers: ')
+                                print(customer_in_calculating[
+                                          i].id + " can find position in ready route " +', including customers: ')
                                 for c in whole_route[1][available_positions[-1][2]].route_list:
                                     print(c.id + ', '),
                                 print('/n')
-                                plot_a_simple_map(whole_route[1][available_positions[-1][2]],str(whole_route[1][available_positions[-1][2]].route_id ))
-                            else:
-                                    print(customer_in_calculating[i].id+" cannot find position in ready running routes")
-            else:
-                print(customer_in_calculating[i].id+"\'s service time cannot match any ready running routes!")
+                                # plot_a_simple_map( whole_route[1][available_positions[-1][2]],
+                                #                    str( whole_route[1][available_positions[-1][2]].route_id ) )
+                            # else:
+                            #     print(customer_in_calculating[i].id + " cannot find position in ready running routes")
+            # else:
+            #     print(customer_in_calculating[i].id + "\'s service time cannot match any ready running routes!")
+        if find_position==0:
+            #先和在路上刚刚出发的线路匹配whole_route[4][0],再和之前有过变动的线路whole_route[4][1]匹配,
+            # 之前没变动的whole_route[4][2]线路只用和新添的cutomer_in_append(tip=1)匹配 不用和customer_in_calculating(tip=0)匹配
+
+            if 4 in whole_route.keys():
+                if tip==0:
+                    scale=2
+                else:
+                    scale=3
+                available_positions = []
+                distance_test = float( "inf" )
+                for ll in range(scale):
+                    # if whole_route[4][ll]!=None:
+                    if ll in whole_route[4].keys():
+                        if len(whole_route[4][ll])!=0:
+
+                            for x in range(len(whole_route[4][ll])):
+                                if whole_route[4][ll][x].start_time+whole_route[4][ll][x].drop_time_list[-1]>customer_in_calculating[i].on_time \
+                                        and timestamp_2 < whole_route[4][ll][x].start_time + whole_route[4][ll][x].drop_time_list[-1]:
+                                    #顾客i的服务时间在线路结束之前，且现在线路没结束
+                                # if timestamp_2 < whole_route[4][x].start_time + whole_route[4][x].drop_time_list[-1]:
+                                    #对每一条线路check车运行到哪
+                                    began=float("inf")
+                                    if whole_route[4][ll][x].start_time<timestamp_2<whole_route[4][ll][x].start_time+whole_route[4][ll][x].drop_time_list[0]:
+                                        began=0
+                                    elif whole_route[4][ll][x].start_time+whole_route[4][ll][x].drop_time_list[-2]<timestamp_2<\
+                                            whole_route[4][ll][x].start_time+whole_route[4][ll][x].drop_time_list[-1]:
+                                        began=len(whole_route[4][ll][x].route_list)
+                                    else:
+                                        for y in range( len( whole_route[4][ll][x].route_list ) - 1 ):
+                                            if whole_route[4][ll][x].start_time+whole_route[4][ll][x].drop_time_list[y] < timestamp_2 < \
+                                                    whole_route[4][ll][x].start_time+whole_route[4][ll][x].drop_time_list[y + 1]:
+                                                began = y + 1
+                                                # break
+                                    if began==float("inf"):
+                                        pass
+                                    for z in range(began, len(whole_route[4][ll][x].drop_time_list)):
+                                        new_insert=whole_route[4][ll][x]
+                                        new_insert.route_list.insert(z,customer_in_calculating[i])
+                                        exceed_capacity, distance_dictionary=check_capacity(new_insert, distance_dictionary)
+                                        can_insert, time_list, distance_dictionary=check2distance(new_insert, distance_dictionary)
+                                        whole_route[4][ll][x].route_list.remove(customer_in_calculating[i])
+                                        if exceed_capacity==0 and can_insert==1:
+                                            if z == 0:
+                                                if 'airport' + '_' + customer_in_calculating[i].id not in distance_dictionary.keys():
+                                                    distance_dictionary=airport.update_distance_dictionary(customer_in_calculating[i],distance_dictionary)
+                                                if customer_in_calculating[i].id + '_' +whole_route[4][ll][x].route_list[0].id not in distance_dictionary.keys():
+                                                    distance_dictionary=customer_in_calculating[i].update_distance_dictionary(whole_route[4][ll][x].route_list[0])
+                                                if 'airport' + '_' + whole_route[4][ll][x].route_list[0].id not in distance_dictionary.keys():
+                                                    distance_dictionary=airport.update_distance_dictionary(whole_route[4][ll][x].route_list[0])
+                                                expected_pick_time=whole_route[4][ll][x].start_time+distance_dictionary['airport' + '_' + customer_in_calculating[i].id]
+                                                distance_increase = distance_dictionary[
+                                                                        'airport' + '_' + customer_in_calculating[i].id] + \
+                                                                    distance_dictionary[customer_in_calculating[i].id + '_' +
+                                                                                        whole_route[4][ll][x].route_list[0].id] - \
+                                                                    distance_dictionary[
+                                                                        'airport' + '_' + whole_route[4][ll][x].route_list[0].id]
+                                            elif z == len( whole_route[4][ll][x].route_list ):
+                                                if whole_route[4][ll][x].route_list[-1].id + '_' +customer_in_calculating[i].id not in distance_dictionary.keys():
+                                                    distance_dictionary=whole_route[4][ll][x].route_list[-1].update_distance_dictionary(customer_in_calculating[i],distance_dictionary)
+                                                if  customer_in_calculating[i].id + '_' + 'airport' not in distance_dictionary.keys():
+                                                    distance_dictionary=customer_in_calculating[i].update_distance_dictionary(airport,distance_dictionary)
+                                                if whole_route[4][ll][x].route_list[-1].id + '_' + 'airport' not in distance_dictionary.keys():
+                                                    distance_dictionary=whole_route[4][ll][x].route_list[-1].update_distance_dictionary(airport,distance_dictionary)
+                                                expected_pick_time=whole_route[4][ll][x].start_time+whole_route[4][ll][x].drop_time_list[-2]+distance_dictionary[
+                                                    whole_route[4][ll][x].route_list[-1].id + '_' +customer_in_calculating[i].id]
+                                                distance_increase = distance_dictionary[
+                                                                        whole_route[4][ll][x].route_list[-1].id + '_' +
+                                                                        customer_in_calculating[i].id] + distance_dictionary[
+                                                                        customer_in_calculating[i].id + '_' + 'airport'] - \
+                                                                    distance_dictionary[
+                                                                        whole_route[4][ll][x].route_list[-1].id + '_' + 'airport']
+                                            else:
+                                                if whole_route[4][ll][x].route_list[z-1].id+'_'+customer_in_calculating[i].id not in distance_dictionary.keys():
+                                                    distance_dictionary=whole_route[4][ll][x].route_list[z-1].update_distance_dictionary(customer_in_calculating[i],distance_dictionary)
+                                                if customer_in_calculating[i].id + '_' +whole_route[4][ll][x].route_list[z].id not in distance_dictionary.keys():
+                                                    distance_dictionary=customer_in_calculating[i].update_distance_dictionary(whole_route[4][ll][x].route_list[z],distance_dictionary)
+                                                if whole_route[4][ll][x].route_list[z-1].id + '_' + whole_route[4][ll][x].route_list[z].id not in distance_dictionary.keys():
+                                                    distance_dictionary=whole_route[4][ll][x].route_list[z-1].update_distance_dictionary(whole_route[4][ll][x].route_list[z],distance_dictionary)
+
+                                                expected_pick_time=whole_route[4][ll][x].start_time+whole_route[4][ll][x].drop_time_list[z-1]+distance_dictionary[
+                                                    whole_route[4][ll][x].route_list[z-1].id+'_'+customer_in_calculating[i].id]
+                                                distance_increase = distance_dictionary[
+                                                                        whole_route[4][ll][x].route_list[z-1].id + '_' +
+                                                                        customer_in_calculating[i].id] + distance_dictionary[
+                                                                        customer_in_calculating[i].id + '_' +
+                                                                        whole_route[4][ll][x].route_list[z].id] - \
+                                                                    distance_dictionary[whole_route[4][ll][x].route_list[z-1].id + '_'
+                                                                                        + whole_route[4][ll][x].route_list[
+                                                                                            z].id]
+
+                                            if expected_pick_time<customer_in_calculating[i].on_time and distance_increase<distance_test:
+                                                available_positions.append([distance_increase,z,x,ll])
+                                                # whole_route[4][x].route_list.remove(customer_in_calculating[i])
+                                                distance_test=distance_increase
+
+                if len(available_positions)!=0:
+                    whole_route[4][available_positions[-1][3]][available_positions[-1][2]].route_list.insert(available_positions[-1][1],customer_in_calculating[i])
+                    can_insert, time_list, distance_dictionary = check2distance( whole_route[4][available_positions[-1][3]][available_positions[-1][2]], distance_dictionary )
+                    whole_route[4][available_positions[-1][3]][available_positions[-1][2]].drop_time_list=time_list
+                    ll=available_positions[-1][3]
+                    if ll==0:
+                        whole_route40to41.append(whole_route[4][ll][available_positions[-1][2]].route_id)
+                    if ll==1:
+                        whole_route41to41.append(whole_route[4][ll][available_positions[-1][2]].route_id)
+                    if ll==2:
+                        whole_route42to41.append(whole_route[4][ll][available_positions[-1][2]].route_id)
+                    find_position=1
+                    print(customer_in_calculating[i].id+" can find position in current running route "+str(whole_route[4][ll][available_positions[-1][2]].route_id)
+                    +
+                         ', including customers: ')
+                    for c in whole_route[4][ll][available_positions[-1][2]].route_list:
+                        print(c.id+', '),
+                    print('\n')
+                    # plot_a_simple_map(whole_route[4][ll][available_positions[-1][2]],str(whole_route[4][ll][available_positions[-1][2]].route_id))
+                # else:
+                #     print(customer_in_calculating[i].id+" cannot find position in current running routes")
+
+
+# else:
+#     print("no running vehicles!")
+
+
+
+
+
         if find_position==0:
             #这种重新派一辆车的情况应该就是不存在的，因为任意预约时间小于timestamp_2，更何况是最早预约时间,
             if 'airport' + '_' + customer_in_calculating[i].id not in distance_dictionary.keys():
                 distance_dictionary=airport.update_distance_dictionary(customer_in_calculating[i],distance_dictionary)
             if 0 <customer_in_calculating[i].on_time - distance_dictionary[
-                'airport' + '_' + customer_in_calculating[i].id] - timestamp_2 < 10*60: #出发时间还剩5分钟没匹配到的考虑派车
+                'airport' + '_' + customer_in_calculating[i].id] - timestamp_2 < 20*60: #出发时间还剩20分钟没匹配到的考虑派车
 
                 route_list_tmp = []
                 route_list_tmp.append( customer_in_calculating[i] )
@@ -1006,7 +1113,7 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
 
                 print(customer_in_calculating[i].id+"is arranged a new route.")
             else:
-                print(customer_in_calculating[i].id+"cannot reach the requirement that the departure time is within 10 minutes")
+                print(customer_in_calculating[i].id+"cannot find position in current three circumstances")
                 customer_in_uncomplete.append( customer_in_calculating[i] )
 
 
@@ -1190,13 +1297,82 @@ def calculate_cutomer_in(customer_in_calculating, whole_route, distance_dictiona
         #         for k in
 
 
-    if 1 in whole_route.keys():
-        if 2 not in whole_route.keys():
-            whole_route[2]=[whole_route[1]]
-        else:
-            whole_route[2].append(whole_route[1])
-        # whole_route[1]
-        whole_route[1] = None
+    if tip==0:
+        if 1 in whole_route.keys():
+            if 2 not in whole_route.keys():
+                whole_route[2]=[whole_route[1]]
+            else:
+                whole_route[2].append(whole_route[1])
+                # whole_route_tmp1_list=[]
+                # for route_tmp1 in range(len(whole_route[1])):
+                #     whole_route_tmp1_list.append(whole_route[1][route_tmp1])
+
+                # whole_route_tmp1=whole_route[1]
+                # w=len(whole_route[2])
+                # whole_route[2].append([])
+                # whole_route[2][w]=whole_route_tmp1_list
+            # whole_route[1]
+            whole_route[1] = None
+
+
+    if 4 in whole_route.keys() and 1 in whole_route[4].keys():
+        whole_route41to41=list(set(whole_route41to41))
+        for route_change in range(len(whole_route[4][1])-1,-1,-1):
+            te=0
+            for num in whole_route41to41:
+                if whole_route[4][1][route_change].route_id!=num:
+                    te=te+1
+            if tip==0 and te==len(whole_route41to41):#没找到就变为2
+                if 2 in whole_route[4].keys():
+                    whole_route[4][2].append(whole_route[4][1][route_change])
+                else:
+                    route_change_tmp=[]
+                    route_change_tmp.append(whole_route[4][1][route_change])
+                    whole_route[4][2]=route_change_tmp
+                whole_route[4][1].remove(whole_route[4][1][route_change])
+
+    if 4 in whole_route.keys() and 2 in whole_route[4].keys():
+        whole_route42to41=list(set(whole_route42to41))
+        for route_change in range( len( whole_route[4][2] )-1,-1,-1 ):
+            te=0
+            for num in whole_route42to41:
+                if whole_route[4][2][route_change].route_id == num:
+                    if 1 in whole_route[4].keys():
+                        whole_route[4][1].append( whole_route[4][2][route_change] )
+                    else:
+                        route_change_tmp = []
+                        route_change_tmp.append( whole_route[4][2][route_change] )
+                        whole_route[4][1] = route_change_tmp
+                    whole_route[4][2].remove(whole_route[4][2][route_change])
+                # else:
+                #     te=te+1
+            # if te==len(whole_route42to41):
+                    # 没找到维持2的状态不变
+
+    if 4 in whole_route.keys() and whole_route[4][0] != None:
+        whole_route40to41 = list( set( whole_route40to41 ) )
+        for route_change in range( len( whole_route[4][0] ) - 1, -1, -1 ):
+            te = 0
+            for num in whole_route40to41:
+                if whole_route[4][0][route_change].route_id == num:
+                    if 1 in whole_route[4].keys():
+                        whole_route[4][1].append( whole_route[4][0][route_change] )
+                    else:
+                        route_change_tmp = []
+                        route_change_tmp.append( whole_route[4][0][route_change] )
+                        whole_route[4][1] = route_change_tmp
+                    whole_route[4][0].remove( whole_route[4][0][route_change] )
+                else:
+                    te = te + 1
+            if tip == 0 and te == len( whole_route40to41 ):  # 在whole_route40to41里都没有找到 说明就不是更新过的线路
+                if 2 in whole_route[4].keys():
+                    whole_route[4][2].append( whole_route[4][0][route_change] )
+                else:
+                    route_change_tmp = []
+                    route_change_tmp.append( whole_route[4][0][route_change] )
+                    whole_route[4][2] = route_change_tmp
+                whole_route[4][0].remove( whole_route[4][0][route_change] )
+
 
 
 
@@ -1291,11 +1467,14 @@ for i in range(130):
     car_tmp='yue'+str(i)
     car_T.append(car_tmp)
 
+customer_in_calculating = []
 
 for timestamp_1 in range( 1438531200, 1438617600, 300 ):
     # flag=flag+1
     customer_out_calculating = []  # 无顺序
-    customer_in_calculating = []
+    customer_in_append=[]
+    customer_in_uncomplete1=[]
+    customer_in_uncomplete2=[]
     # customer_in_completed=[]
     # if timestamp_1==1438597800:
     #     pass
@@ -1337,7 +1516,7 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                             # plot_a_simple_map( whole_route[1][l], 'test_before' + str( l ) )
                             if len( whole_route[1][k].route_list ) != 0 and len( whole_route[1][l].route_list ) != 0:
                                 new_route1, new_route2, distance_dictionary = inter_change( whole_route[1][k], whole_route[1][l],
-                                                                                            distance_dictionary )
+                                                                                            distance_dictionary,timestamp_2 )
                                 whole_route[1][k] = new_route1
                                 whole_route[1][l] = new_route2
 
@@ -1350,7 +1529,7 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                     # inner_exchange
                     for k in range(len(whole_route[1])):
                         # plot_a_simple_map( whole_route[1][k], 'test_before'+str(k) )
-                        new_route, distance_dictionary=inner_change( whole_route[1][k], distance_dictionary )
+                        new_route, distance_dictionary=inner_change( whole_route[1][k], distance_dictionary,timestamp_2 )
                         # plot_a_simple_map( new_route, 'test_after'+str(k) )
                         whole_route[1][k]=new_route
 
@@ -1391,7 +1570,7 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                 f.write("在此时间间隔内的出机场乘客都不能被服务,有"+str(len(customer_out_uncomplete))+"个，他们是：")
                 print("在此时间间隔内的出机场乘客都不能被服务,有"+str(len(customer_out_uncomplete))+"个，他们是：")
                 for i in range( len( customer_out_uncomplete ) ):
-                    f.write( customer_out_uncomplete[i].id + ', ' ),
+                    f.write( customer_out_uncomplete[i].id + ', ')
                     print(customer_out_uncomplete[i].id + ', '),
                 f.write( '\n' )
                 print('\n')
@@ -1399,14 +1578,14 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                 f.write("在此时间间隔内部分出机场乘客不能被服务，有"+str(len(customer_out_uncomplete))+"个，他们是：")
                 print("在此时间间隔内部分出机场乘客不能被服务，有"+str(len(customer_out_uncomplete))+"个，他们是：")
                 for i in range( len( customer_out_uncomplete ) ):
-                    f.write( customer_out_uncomplete[i].id + ', ' ),
+                    f.write( customer_out_uncomplete[i].id + ', ' )
                     print( customer_out_uncomplete[i].id + ', ' ),
                 f.write( '\n' )
                 print('\n')
                 f.write("能被服务的有"+str(len(customer_out_complete))+"个,他们是：")
                 print("能被服务的有"+str(len(customer_out_complete))+"个,他们是：")
                 for i in range( len( customer_out_complete ) ):
-                    f.write( customer_out_complete[i].id + ', ' ),
+                    f.write( customer_out_complete[i].id + ', ')
                     print( customer_out_complete[i].id + ', ' ),
 
                 f.write( '\n' )            # f.write( "在此时间间隔内不能服务的出机场乘客是：" )
@@ -1417,7 +1596,7 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
 
         # f.write( "在此时间间隔内能服务的出机场乘客是：" )
             for i in range( len( customer_out_complete ) ):
-                f.write( customer_out_complete[i].id + ', ' ),
+                f.write( customer_out_complete[i].id + ', ' )
                 print( customer_out_complete[i].id + ', ' ),
         # f.write( '\n' )
     else:
@@ -1434,31 +1613,73 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
     #         latest_return_time = a.drop_time_list[-1]
 
     for r in customer_in:
-        if r.order_time < timestamp_2:
-            customer_in_calculating.append( r )
+        if r.order_time<timestamp_2:
+            if timestamp_1==1438531200:
+                customer_in_calculating.append( r )
+            else:
+                customer_in_append.append( r )
+
+    customer_in_append=[v for v in customer_in_append if v not in customer_in_calculating]
+
+                #
+                # for s in customer_in_calculating:
+                #     if r.id!=s.id:
+
+
     # for r in customer_in_cannot_service:
     #     if timestamp_1 < r.on_time < latest_return_time+timestamp_1:
     #         customer_in_calculating.append( r )
 
-    if len(customer_in_calculating)!=0:
-        f.write( "此时段系统收到的且未安排的入机场订单有：" + str( len( customer_in_calculating ) ) + '个' )
-        print( "此时段系统收到的且未安排的入机场订单有：" + str( len( customer_in_calculating ) ) + '个' )
+
+
+
+    if len(customer_in_calculating)!=0 or len(customer_in_append)!=0:
+        if timestamp_1==1438531200:
+            f.write( "此时段系统新收到的且未安排的入机场订单有：" + str( len( customer_in_calculating ) ) + '个' )
+            print("此时段系统新收到的未安排的入机场订单有：" + str( len( customer_in_calculating ) ) + '个')
+        else:
+            f.write( "此时段系统累积收到的且未安排的入机场订单有：" + str( len( customer_in_calculating ) ) + '个' )
+            print( "此时段系统累积的未安排的入机场订单有：" + str( len( customer_in_calculating ) ) + '个' )
+    # if len(customer_in_append)!=0:
+            print( "在这个时间区间新收到的且未安排的入机场订单有：" + str( len( customer_in_append ) ) + '个，是' ),
+            for m in range(len(customer_in_append)):
+                print(customer_in_append[m].id ),
+            print('\n')
+
         # flag=flag+1
         # whole_route, customer_in_completed, distance_dictionary, customer_out_calculated_route_id= calculate_cutomer_in( customer_in_calculating, whole_route,
         #                                                                 distance_dictionary,timestamp_1,customer_out_calculated_route_id )
-        whole_route, customer_in_uncomplete, distance_dictionary = calculate_cutomer_in(customer_in_calculating, whole_route,
-            distance_dictionary, timestamp_2)
+
+        if len( customer_in_append ) != 0:
+            whole_route, customer_in_uncomplete2, distance_dictionary = calculate_cutomer_in( customer_in_append,
+                                                                                              whole_route,
+                                                                                              distance_dictionary,
+                                                                                              timestamp_2, tip = 1 )
+        if len(customer_in_calculating)!=0 :
+            whole_route, customer_in_uncomplete1, distance_dictionary = calculate_cutomer_in(customer_in_calculating, whole_route,
+            distance_dictionary, timestamp_2,tip=0)
+
+        customer_in_uncomplete=customer_in_uncomplete1+customer_in_uncomplete2
+        customer_in_calculating=customer_in_calculating+customer_in_append
         customer_in_complete=[v for v in customer_in_calculating if v not in customer_in_uncomplete]
+
+
+        customer_in = [v for v in customer_in if v not in customer_in_complete]
+        customer_in_calculating = [v for v in customer_in_calculating if v not in customer_in_complete]
+        # customer_in_append = [v for v in customer_in_append if v not in customer_in_complete]
+        # customer_in_calculating=customer_in_calculating+customer_in_append
+
+
         if len(customer_out_complete)==0:
             if len(customer_in_complete)!=0:
                 flag = flag + 1
 
         if len(customer_in_uncomplete)!=0:
-            if len(customer_in_uncomplete)==len(customer_in_calculating):
+            if len(customer_in_complete)==0:
                 f.write("在此时间间隔内的入机场乘客都不能被服务,有"+str(len(customer_in_uncomplete))+"个，他们是：")
                 print("在此时间间隔内的入机场乘客都不能被服务,有"+str(len(customer_in_uncomplete))+"个，他们是：")
                 for i in range( len( customer_in_uncomplete ) ):
-                    f.write( customer_in_uncomplete[i].id + ', ' ),
+                    f.write( customer_in_uncomplete[i].id + ', ' )
                     print(customer_in_uncomplete[i].id + ', '),
                 f.write( '\n' )
                 print('\n')
@@ -1466,14 +1687,14 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                 f.write("在此时间间隔内部分入机场乘客不能被服务，有"+str(len(customer_in_uncomplete))+"个，他们是：")
                 print("在此时间间隔内部分入机场乘客不能被服务，有"+str(len(customer_in_uncomplete))+"个，他们是：")
                 for i in range( len( customer_in_uncomplete ) ):
-                    f.write( customer_in_uncomplete[i].id + ', ' ),
+                    f.write( customer_in_uncomplete[i].id + ', ')
                     print( customer_in_uncomplete[i].id + ', ' ),
                 f.write( '\n' )
                 print('\n')
                 f.write("能被服务的有"+str(len(customer_in_complete))+"个,他们是：")
                 print("能被服务的有"+str(len(customer_in_complete))+"个,他们是：")
                 for i in range( len( customer_in_complete ) ):
-                    f.write( customer_in_complete[i].id + ', ' ),
+                    f.write( customer_in_complete[i].id + ', ')
                     print( customer_in_complete[i].id + ', ' ),
 
                 f.write( '\n' )            # f.write( "在此时间间隔内不能服务的出机场乘客是：" )
@@ -1484,13 +1705,12 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
 
         # f.write( "在此时间间隔内能服务的出机场乘客是：" )
             for i in range( len( customer_in_complete ) ):
-                f.write( customer_in_complete[i].id + ', ' ),
+                f.write( customer_in_complete[i].id + ', ' )
                 print( customer_in_complete[i].id + ', ' ),
 
 
 
 
-        customer_in = [v for v in customer_in if v not in customer_in_complete]
 
         if 2 in whole_route.keys():
             if whole_route[2][flag]!=None:
@@ -1500,7 +1720,7 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                         # plot_a_simple_map( whole_route[1][k], 'test_before' + str( k ) )
                         # plot_a_simple_map( whole_route[1][l], 'test_before' + str( l ) )
                         if len(whole_route[2][flag][k].route_list)!=0 and len(whole_route[2][flag][l].route_list)!=0:
-                            new_route1, new_route2,distance_dictionary= inter_change(whole_route[2][flag][k], whole_route[2][flag][l],distance_dictionary)
+                            new_route1, new_route2,distance_dictionary= inter_change(whole_route[2][flag][k], whole_route[2][flag][l],distance_dictionary,timestamp_2)
                             whole_route[2][flag][k]=new_route1
                             whole_route[2][flag][l]=new_route2
 
@@ -1511,7 +1731,7 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                 # inner_exchange
                 for k in range(len(whole_route[2][flag])):
                     # plot_a_simple_map( whole_route[1][k], 'test_before'+str(k) )
-                    new_route, distance_dictionary=inner_change( whole_route[2][flag][k], distance_dictionary )
+                    new_route, distance_dictionary=inner_change( whole_route[2][flag][k], distance_dictionary,timestamp_2 )
                     # plot_a_simple_map( new_route, 'test_after'+str(k) )
                     whole_route[2][flag][k]=new_route
 
@@ -1545,8 +1765,8 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                 print('\n'+"在此时间段完成的出入机场订单线路有：\n")#没车的线路已经移除到whole_route[3]
                 for i in whole_route[2][flag]:
                     image_name = timestr_1 + "--" + timestr_2 + " final: "+str(i.route_id)
-                    plot_a_simple_map( i, image_name )
-                    print(str( i.route_id ) + ': ' + '车牌号：' + i.car_id),
+                    # plot_a_simple_map( i, image_name )
+                    print(str( i.route_id ) + ': ' + '车牌号：' + i.car_id)
                     for j in i.route_list:
                         print(j.id + ', '),
                     print('\n')
@@ -1557,9 +1777,12 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
                         route_ready_tmp=whole_route[2][flag][k]
                         route_ready=[]
                         route_ready.append(route_ready_tmp)
-                        whole_route[4]=route_ready
+                        # whole_route[4][0]=route_ready
+                        whole_route[4]=dict()
+                        whole_route[4][0]=route_ready
+
                     else:
-                        whole_route[4].append(whole_route[2][flag][k])
+                        whole_route[4][0].append(whole_route[2][flag][k])
 
 
 
@@ -1571,35 +1794,43 @@ for timestamp_1 in range( 1438531200, 1438617600, 300 ):
 
 
 
-            for complete_route in whole_route[4]:
-                if complete_route.start_time+complete_route.drop_time_list[-2]<timestamp_1:
-                    pass
-                if complete_route.start_time+complete_route.drop_time_list[-1]<timestamp_1:
-                    car_id_tmp=complete_route.car_id
-                    if 5 not in whole_route.keys():
-                        route_return=[]
-                        route_return_tmp=complete_route
-                        route_return.append(route_return_tmp)
-                        whole_route[5]=route_return
-                    else:
-                        whole_route[5].append(complete_route)
-                    whole_route[4].remove(complete_route)
+            for ll in range(1,3):
+                if ll in whole_route[4].keys():
+                    for complete_route in whole_route[4][ll]:
+                        if complete_route.start_time+complete_route.drop_time_list[-2]<timestamp_1:
+                            pass
+                        if complete_route.start_time+complete_route.drop_time_list[-1]<timestamp_1:
+                            car_id_tmp=complete_route.car_id
+                            start_time_string = time.strftime( "%H:%M:%S", time.localtime( complete_route.start_time ) )
+                            end_time_string= time.strftime( "%H:%M:%S", time.localtime( timestamp_1 ) )
+                            image_name="start time_"+str(start_time_string[0:2])+str(start_time_string[3:5])+\
+                                       str(start_time_string[6:8])+"_end time_"+str(end_time_string[0:2])+\
+                                       str(end_time_string[3:5])+str(end_time_string[6:8])
+                            plot_a_simple_map(complete_route,image_name)
+                            if 5 not in whole_route.keys():
+                                route_return=[]
+                                route_return_tmp=complete_route
+                                route_return.append(route_return_tmp)
+                                whole_route[5]=route_return
+                            else:
+                                whole_route[5].append(complete_route)
+                            whole_route[4][ll].remove(complete_route)
 
-                    if 3 in whole_route.keys():
-                        if len(whole_route[3])!=0:
-                            whole_route[3][0].car_id=car_id_tmp
-                            print("线路"+str(whole_route[3][0].route_id)+"等到了车"+car_id_tmp+"，服务的乘客有：")
-                            image_name = timestr_1 + "--" + timestr_2 + " final: " + str( whole_route[3][0].route_id )
-                            plot_a_simple_map( whole_route[3][0], image_name )
-                            for j in whole_route[3][0].route_list:
-                                print(j.id+', '),
-                            route_havecar=whole_route[3][0]
-                            route_havecar.start_time=timestamp_2
-                            whole_route[4].append(route_havecar)
-                            whole_route[3].remove(route_havecar)
-                        else:
-                            car_T.append(car_id_tmp)
-                            car_F.remove(car_id_tmp)
+                            if 3 in whole_route.keys():
+                                if len(whole_route[3])!=0:
+                                    whole_route[3][0].car_id=car_id_tmp
+                                    print("线路"+str(whole_route[3][0].route_id)+"等到了车"+car_id_tmp+"，服务的乘客有：")
+                                    image_name = timestr_1 + "--" + timestr_2 + " final: " + str( whole_route[3][0].route_id )
+                                    # plot_a_simple_map( whole_route[3][0], image_name )
+                                    for j in whole_route[3][0].route_list:
+                                        print(j.id+', '),
+                                    route_havecar=whole_route[3][0]
+                                    route_havecar.start_time=timestamp_2
+                                    whole_route[4][0].append(route_havecar)
+                                    whole_route[3].remove(route_havecar)
+                                else:
+                                    car_T.append(car_id_tmp)
+                                    car_F.remove(car_id_tmp)
 
 
 
